@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-start pt-5">
+  <a routerLink="/products" class="btn btn-primary">Products Page</a>
+</div>
+<div class="container mt-5">
+  <div class="productdetails">
+    <div *ngFor="let x of productData; let i = index">
+      <span class="d-flex justify-content-center"
+        ><img src="{{ x.image }}" alt="image" width="200px" height="200px" />
+        <p class="p-5 text-danger">{{ x.description }}</p>
+        <p class="mt-5">{{ x.price | currency : "INR" }}</p>
+      </span>
+      <span class="d-flex justify-content-center">
+        <a href="#" class="btn btn-success form-control">Buy</a>
+        <a
+          routerLink="/cart"
+          class="btn btn-primary form-control"
+          (click)="cart(i)"
+          >Add to cart</a
+        >
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.cartsection{
+  border: 2px solid red;
+  
+    .remove-btn{
+     float: right;
+     padding: 10px;
+    }
+  
+}
+.carttable{
+  width: 80%;
+  margin: 0 auto;
+
+}
+.carttablehidden{
+   display:none;
+}
+.carttableshow{
+    display: block;
+    width: 80%;
+}
+.cart_empty_error_hidden{
+  display: none;
+}
+.cart_empty_error_visible{
+  display: block;
+}

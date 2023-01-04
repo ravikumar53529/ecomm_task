@@ -1,0 +1,71 @@
+<div class="container mt-5 cartsection">
+  <div class="d-flex justify-content-center">
+    <div [ngClass]="cartDataVisibil">
+      <table class="table carttable">
+        <thead>
+          <tr>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>No of Items</th>
+            <th>Total</th>
+            <th>Delete Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let productFinal of cartItemsArray; let indexNo = index">
+            <!-- <td><img src="{{ items.image }}" alt="" /></td>
+            <td>{{ items.title }}</td> -->
+            <td>
+              <img
+                src="{{ productFinal.image }}"
+                alt=""
+                width="100px"
+                height="100px"
+              />
+            </td>
+            <td>
+              {{ productFinal.title }}
+            </td>
+            <td>{{ productFinal.price | currency : "INR" }}</td>
+            <td>
+              <div class="itemsincrement-decrement">
+                <div class="d-flex justify-content-start">
+                  <button (click)="decrementTesting(productFinal)">-</button>
+                  <button>{{ productFinal.id }}</button>
+                  <button (click)="incremenetTesting(productFinal)">+</button>
+                </div>
+              </div>
+            </td>
+            <td>
+              {{ productFinal.price | currency : "INR" }}
+            </td>
+            <td>
+              <button><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Sub Total Price</td>
+            <td>{{ totalProductPrice | currency : "INR" }}</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="remove-btn">
+        <button class="float-right btn btn-danger">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>Remove all Items
+        </button>
+      </div>
+    </div>
+
+    <div [ngClass]="cartemptyimage">
+      <img
+        src="../../assets/images/cartempty.png"
+        alt="cart_empty_image"
+        width="500px"
+        height="300px"
+      />
+    </div>
+  </div>
+</div>

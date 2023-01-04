@@ -1,0 +1,60 @@
+<div class="container loginform">
+  <div class="pt-3">
+    <div></div>
+    <form #loginForm="ngForm" (ngSubmit)="loginUser1(loginForm.value)">
+      <input
+        type="email"
+        required
+        #useremail="ngModel"
+        name="useremail"
+        email
+        placeholder="Enter Email"
+        class="login_field"
+        ngModel
+      />
+      <span
+        *ngIf="useremail && useremail.invalid && useremail.touched"
+        class="text-danger"
+        >please enter valid email</span
+      >
+      <input
+        type="password"
+        required
+        #userpassword="ngModel"
+        pattern="[a-z/A-Z/0-9]+$"
+        minlength="8"
+        name="userpassword"
+        placeholder="Enter Password"
+        class="login_field"
+        ngModel
+      />
+      <span
+        *ngIf="userpassword && userpassword.invalid && userpassword.touched"
+        class="text-danger"
+        >please enter valid password</span
+      ><br />
+      <span
+        class="text-danger"
+        *ngIf="userpassword.touched && userpassword.errors?.['minlength']"
+        >Password contains minmum 8 characters</span
+      >
+      <div class="d-flex justify-content-center m-2">
+        <input
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="btn btn-primary"
+          value="Login"
+        />
+        <input type="reset" class="btn btn-danger" value="Reset" />
+      </div>
+    </form>
+  </div>
+  <div>
+    <span class="text-dark pt-2"
+      >Not Registered Yet?<a routerLink="/signup" class="text-primary"
+        >Register</a
+      ></span
+    >
+  </div>
+  <hr />
+</div>

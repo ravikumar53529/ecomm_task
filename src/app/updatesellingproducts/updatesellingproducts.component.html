@@ -1,0 +1,50 @@
+<div class="container updatecontainer">
+  <div class="updateproducts mt-5">
+    <form #updateForm="ngForm" (ngSubmit)="updateProducts(updateForm.value)">
+      <input
+        type="number"
+        class="update_products_fields"
+        name="productId"
+        placeholder="Enter Product Id"
+        #productId="ngModel"
+        [(ngModel)]="productObj.productId"
+      />
+      <input
+        type="text"
+        class="update_products_fields"
+        placeholder="Enter Product Name"
+        name="productName"
+        #productName="ngModel"
+        [(ngModel)]="productObj.productName"
+      />
+      <input
+        type="number"
+        class="update_products_fields"
+        placeholder="Enter Product Price"
+        name="productPrice"
+        #productNam="ngModel"
+        [(ngModel)]="productObj.productPrice"
+      />
+      <input
+        type="text"
+        class="update_products_fields"
+        placeholder="Enter Product Brand"
+        name="productBrand"
+        #productBrand="ngModel"
+        [(ngModel)]="productObj.productBrand"
+      />
+      <input
+        type="text"
+        class="update_products_fields"
+        placeholder="Enter Product Model"
+        name="productModel"
+        #productModel
+        [(ngModel)]="productObj.productModel"
+      /><br />
+      <div class="d-flex justify-content-center">
+        <input type="submit" class="btn btn-success" value="update" />
+        <input type="reset" class="btn btn-danger" value="Reset" />
+      </div>
+    </form>
+  </div>
+</div>

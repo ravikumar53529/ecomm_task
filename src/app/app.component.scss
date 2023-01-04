@@ -1,0 +1,9 @@
+/* define variables */
+$bgcolor:lightblue;
+$textcolor:black;
+$fontsize:18px;
+h1{
+    background-color:$bgcolor;
+    font-size: $fontsize;
+    color: $textcolor;
+}

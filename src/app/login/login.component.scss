@@ -1,0 +1,16 @@
+.loginform{
+    width: 400px;
+    height: auto;
+    background-color: white;
+    margin-top: 50px;
+    border: 5px solid rgb(230, 172, 172) ;
+    div{
+        display: flex;
+        justify-content: center;
+    }
+    .login_field{
+        width: 100%;
+        margin-top: 10px;
+        height: 40px;
+    }
+}

@@ -1,0 +1,70 @@
+<div class="container mt-4 bg-danger p-5 rounded">
+  <p class="text-light p-2">You can sell products here</p>
+</div>
+<div class="container mt-4 bg-light">
+  <div class="selling_header">
+    <div>
+      <button class="btn btn-primary" (click)="openDialog()">
+        Add products
+      </button>
+      <!-- <a href="" class="btn btn-primary mr-4">Update products</a>
+      <a href="" class="btn btn-light mr-4">Delete Produts</a> -->
+    </div>
+    <div>
+      <form>
+        <input type="text" name="" class="inputsearch" />
+        <input type="button" name="" id="" value="Search" class="search" />
+      </form>
+    </div>
+    <div>
+      <a href=""
+        ><i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i
+      ></a>
+    </div>
+  </div>
+</div>
+<div class="container mt-4 bg-light">
+  <div *ngIf="sellingData.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Address</th>
+          <th>Add to Cart</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of sellingData">
+          <td>{{ x.productId }}</td>
+          <td>{{ x.productName }}</td>
+          <td>{{ x.productPrice }}</td>
+          <td>{{ x.productBrand }}</td>
+          <td>{{ x.productModel }}</td>
+          <td>{{ x.productAddress }}</td>
+          <td>
+            <button>
+              <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td>
+            <button (click)="updateProducts(x.productId)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td>
+            <button (click)="deleteProducts(x.productId)" href="">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+</div>

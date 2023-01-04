@@ -1,0 +1,168 @@
+<div class="container-fluid pt-4 signup_form">
+  <div>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUpFormResponse()">
+      <input
+        type="text"
+        class="signup_field"
+        placeholder="Enter Fullname"
+        formControlName="userFullname"
+      />
+      <span
+        *ngIf="userName && userName.invalid && userName.touched"
+        class="text-danger"
+        >please enter valid input</span
+      >
+      <input
+        type="text"
+        class="signup_field"
+        placeholder="Enter Surname"
+        formControlName="userSurname"
+      />
+      <span
+        *ngIf="userSurname && userSurname.invalid && userSurname.touched"
+        class="text-danger"
+        >Please enter valid input</span
+      >
+      <input
+        type="email"
+        class="signup_field"
+        placeholder="Enter Email"
+        formControlName="userEmail"
+      />
+      <span
+        *ngIf="userEmail && userEmail.invalid && userEmail.touched"
+        class="text-danger"
+        >Please enter valid email</span
+      >
+      <input
+        type="number"
+        class="signup_field"
+        placeholder="Enter Phone number"
+        formControlName="userPhoneNumber"
+      />
+      <span
+        *ngIf="
+          userPhoneNumber && userPhoneNumber.invalid && userPhoneNumber.touched
+        "
+        class="text-danger"
+        >Please enter valid phone number</span
+      >
+      <input
+        type="password"
+        placeholder="Enter Password"
+        class="signup_field"
+        formControlName="userPassword"
+        #password
+      />
+      <span
+        *ngIf="userPassword && userPassword.invalid && userPassword.touched"
+        class="text-danger"
+        >Please enter valid password</span
+      ><br />
+      <input
+        type="password"
+        placeholder="Enter Confirm Password"
+        class="signup_field"
+        formControlName="userConfirmPassword"
+        #confirmPassword
+        (keyup)="passwordMatching(password.value, confirmPassword.value)"
+        [ngClass]="passwordmatching"
+      />
+      <span
+        *ngIf="
+          userConfirmPassword &&
+          userConfirmPassword.invalid &&
+          userConfirmPassword.touched
+        "
+        class="text-danger"
+        >Please enter confirm password
+      </span>
+      <span
+        *ngIf="
+          !passwordMatch && userConfirmPassword && userConfirmPassword.valid
+        "
+        class="text-danger"
+        >Both password and confirm password should be match</span
+      ><br />
+      <label for="color">Please Select color</label>
+      <input
+        type="color"
+        class="signup_field"
+        formControlName="userFavouriteColor"
+      />
+      <span
+        *ngIf="
+          userFavouriteColor &&
+          userFavouriteColor.invalid &&
+          userFavouriteColor.touched
+        "
+        class="text-danger"
+        >Please select valid color</span
+      ><br />
+      <label for="file">Please Upload file</label>
+      <input
+        type="file"
+        class="signup_field"
+        formControlName="userFile"
+        (change)="getFileDetails($event)"
+      />
+
+      <span
+        *ngIf="userFile && userFile.invalid && userFile.touched"
+        class="text-danger"
+        >Please select file</span
+      ><br />
+      <span
+        class="text-danger"
+        *ngIf="userFile && userFile.touched && userFile.valid && filesizeValue"
+        >File size must be less than 60kb</span
+      >
+      <!-- *ngIf="userFile && userFile.touched && userFile.errors?.['filesizeValue']" -->
+      <span
+        class="text-danger"
+        *ngIf="fileTypeMessage && userFile && userFile.valid"
+        ><br />
+        upload .jpg/.jpeg/.png/.txt formats only</span
+      >
+      <textarea
+        class="signup_field"
+        cols="40"
+        rows="8"
+        placeholder="Please enter address"
+        formControlName="userAddress"
+      ></textarea
+      ><br />
+      <span
+        *ngIf="userAddress && userAddress.invalid && userAddress.touched"
+        class="text-danger"
+        >Please enter valid address</span
+      >
+      <div class="d-flex justify-content-center">
+        <input
+          type="submit"
+          [disabled]="signUpForm.invalid"
+          value="submit"
+          class="btn btn-primary"
+        />
+        <input type="reset" value="reset" class="btn btn-danger" />
+      </div>
+    </form>
+  </div>
+  <div>
+    <span class="text-dark pt-2"
+      >Already signup?<a routerLink="/login" class="text-primary"
+        >Login</a
+      ></span
+    >
+  </div>
+  <hr />
+  <div class="d-flex justify-content-center">
+    <p class="p-2 text-primary">
+      <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+    </p>
+    <p class="p-2 text-danger">
+      <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+    </p>
+    <p class="p-2"><i class="fa fa-github fa-2x" aria-hidden="true"></i></p>
+  </div>
+</div>
