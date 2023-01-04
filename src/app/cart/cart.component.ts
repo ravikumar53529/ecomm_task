@@ -41,6 +41,7 @@ export class CartComponent implements OnInit{
   
 }
 //add increment
+name:number=0;
 firstItemPrice:number=0;
 priceEnable:boolean=false;
 increment(productId:any){
