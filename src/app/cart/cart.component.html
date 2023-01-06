@@ -31,14 +31,14 @@
             <td>
               <div class="itemsincrement-decrement">
                 <div class="d-flex justify-content-start">
-                  <button (click)="decrementTesting(productFinal)">-</button>
-                  <button>{{ productFinal.id }}</button>
-                  <button (click)="incremenetTesting(productFinal)">+</button>
+                  <button (click)="decrementTesting(indexNo)">-</button>
+                  <button>{{ countNumber[indexNo] }}</button>
+                  <button (click)="incremenetTesting(indexNo)">+</button>
                 </div>
               </div>
             </td>
             <td>
-              {{ productFinal.price * productFinal.id | currency : "INR" }}
+              {{ productFinal.price * countNumber[indexNo] | currency : "INR" }}
             </td>
             <td>
               <button (click)="deleteFromCart(indexNo)">

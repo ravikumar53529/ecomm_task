@@ -72,40 +72,52 @@ increment(productId:any){
 }
 ProductPrice:number=0;
 //incerment product
-incremenetTesting(product:any){
-  console.log(product)
-  if(product.id!=10){
-    product.id+=1;
-   this.productData=product.price;
-    for(let items of this.cartItemsArray){
-      if(items.id==product.id){
-        this.ProductPrice=items.price;
-        console.log(this.ProductPrice)
-        console.log(product.id)
-        product.price=this.ProductPrice+this.ProductPrice;
-        this.totalProductPrice=product.price;
-      }
+countNumber:number[]=[];
+incremenetTesting(index:number){
+  for(let i=0;i<this.cartItemsArray.length;i++){
+    this.countNumber.push(1)
+  }
+  console.log(index)
+  if(this.countNumber[index]!=5){
+    this.countNumber[index]+=1;
+  }
+ 
+  // if(product.id!=10){
+  //   product.id+=1;
+  //  this.productData=product.price;
+  //   for(let items of this.cartItemsArray){
+  //     if(items.id==product.id){
+  //       this.ProductPrice=items.price;
+  //       console.log(this.ProductPrice)
+  //       console.log(product.id)
+  //       product.price=this.ProductPrice+this.ProductPrice;
+  //       this.totalProductPrice=product.price;
+  //     }
 
-    }
+  //   }
   
-  }   
+  // }   
   
 }
 //decrement product
-decrementTesting(product:any){
-  console.log(product.id)
-  if(product.id!=1){
-    console.log(product.price)
-    product.id-=1;
-    this.productData=product.price;
-    for(let items of this.cartItemsArray){
-      if(items.id==product.id){
-        this.ProductPrice=items.price;
-        product.price=this.ProductPrice-this.ProductPrice;
-        this.totalProductPrice=product.price;
-      }
-    }
-  }   
+decrementTesting(index:any){
+  
+  if(this.countNumber[index]!=1){
+    this.countNumber[index]-=1;
+  }
+
+  // if(product.id!=1){
+  //   console.log(product.price)
+  //   product.id-=1;
+  //   this.productData=product.price;
+  //   for(let items of this.cartItemsArray){
+  //     if(items.id==product.id){
+  //       this.ProductPrice=items.price;
+  //       product.price=this.ProductPrice-this.ProductPrice;
+  //       this.totalProductPrice=product.price;
+  //     }
+  //   }
+  // }   
 } 
 //delete individual item form cart
 deleteFromCart(index:number){
