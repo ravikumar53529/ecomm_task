@@ -1,16 +1,13 @@
 .cartsection{
   border: 2px solid red;
-  
-    .remove-btn{
-     float: right;
-     padding: 10px;
-    }
-  
+  padding: 50px;
+  .payment_and_remove_btns{
+    padding: 10px;
+
+  }
 }
 .carttable{
-  width: 80%;
   margin: 0 auto;
-
 }
 .carttablehidden{
    display:none;

@@ -1,0 +1,179 @@
+[
+    {
+        "id":1,
+        "title":"Mens Cotton Raymond Shirt",
+        "quantity":1,
+        "rating":{"rate":4.8,"count":120},
+        "price":599,
+        "image":"../../assets/images/mens/menshirt1.jpg",
+        "category":"mens clothing",
+        "subcategory":"mens shirts"
+
+    }
+    ,{
+
+        "id":2,
+        "title":"Mens Cotton Raymond Shirt",
+        "quantity":1,
+        "rating":{"rate":4.5,"count":120},
+        "price":499,
+        "image":"../../assets/images/mens/menshirt2.jpg",
+        "category":"mens clothing",
+        "subcategory":"mens shirts"
+
+    }
+    ,{
+
+        "id":3,
+        "title":"Mens Cotton Raymond Shirt",
+        "quantity":1,
+        "rating":{"rate":4.5,"count":120},
+        "price":899,
+        "image":"../../assets/images/mens/menshirt3.jpg",
+        "category":"mens clothing",
+        "subcategory":"mens shirts"
+
+    }
+   ,{
+
+    "id":4,
+    "title":"Mens Cotton Raymond Shirt",
+    "quantity":1,
+    "rating":{"rate":4.5,"count":120},
+    "price":683,
+    "image":"../../assets/images/mens/mensshirt4.jpg",
+    "category":"mens clothing",
+    "subcategory":"mens shirts"
+
+}, {
+
+    "id":5,
+    "title":"Mens Cotton Raymond Shirt",
+    "quantity":1,
+    "rating":{"rate":4.3,"count":120},
+    "price":700,
+    "image":"../../assets/images/mens/menshirt5.jpg",
+    "category":"mens clothing",
+    "subcategory":"mens shirts"
+
+},
+{
+
+    "id":6,
+    "title":"Mens Cotton Raymond Shirt",
+    "quantity":1,
+    "rating":{"rate":4.7,"count":120},
+    "price":799,
+    "image":"../../assets/images/mens/shirt6.jpg",
+    "category":"mens clothing",
+    "subcategory":"mens shirts"
+
+},
+{ 
+       "id":7,
+        "title":"Mens Cotton Raymond Shirt",
+        "quantity":1,
+        "rating":{"rate":4.2,"count":120},
+        "price":899,
+        "image":"../../assets/images/mens/menshirt7.jpg",
+        "category":"mens clothing",
+        "subcategory":"mens shirts"
+    
+    },
+    { 
+        "id":8,
+        "title":"Mens Cotton Raymond Shirt",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":999,
+        "image":"../../assets/images/mens/menshirt8.jpg",
+        "category":"mens clothing",
+        "subcategory":"mens shirts"
+    
+    },
+    { 
+        "id":9,
+        "title":"Womens Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":560,
+        "image":"../../assets/images/women/womencloths1.jpg",
+        "category":"womemen clothing",
+        "subcategory":"womens dress"
+    
+    },
+    { 
+        "id":10,
+        "title":"Womens Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":490,
+        "image":"../../assets/images/women/womencloth2.jpg",
+        "category":"womemen clothing",
+        "subcategory":"womens dress"
+    
+    },
+    { 
+        "id":11,
+        "title":"Womens Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":669,
+        "image":"../../assets/images/women/womencloth3.jpg",
+        "category":"womemen clothing",
+        "subcategory":"womens dress"
+    
+    },
+    { 
+        "id":12,
+        "title":"kids Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":359,
+        "image":"../../assets/images/kids/kid1.jpg",
+        "category":"kids clothing",
+        "subcategory":"kids dress"
+    
+    },
+    { 
+        "id":13,
+        "title":"kids Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":450,
+        "image":"../../assets/images/kids/kids2.jpg",
+        "category":"kids clothing",
+        "subcategory":"kids dress"
+    
+    },  { 
+        "id":13,
+        "title":"kids Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":401,
+        "image":"../../assets/images/kids/kids3.jpg",
+        "category":"kids clothing",
+        "subcategory":"kids dress"
+    
+    },{ 
+        "id":14,
+        "title":"kids Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":701,
+        "image":"../../assets/images/kids/kids4.jpg",
+        "category":"kids clothing",
+        "subcategory":"kids dress"
+    
+    },{ 
+        "id":15,
+        "title":"kids Clothing",
+        "quantity":1,
+        "rating":{"rate":4.0,"count":120},
+        "price":628,
+        "image":"../../assets/images/kids/kid5.jpg",
+        "category":"kids clothing",
+        "subcategory":"kids dress"
+    
+    }
+]

@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class CartComponent implements OnInit{
   productData:any=[];
   productFinal:any=[];
+  eachProductPrice:any=[];//It contains all cart items
   count:number=1;
   totalProductPrice:number=0;
   itemTotalPrice:number=0;
@@ -21,6 +22,7 @@ export class CartComponent implements OnInit{
  cartItemsArray:any=[];
  ngOnInit(): void {
     this.cartItemsArray=this.dataServiceRef.cartItems;
+    this.eachProductPrice=this.dataServiceRef.cartItems;
     this.productData=this.dataServiceRef.cartItems;
     if(this.cartItemsArray.length>0){ 
       this.cartDataVisibil="carttableshow";
@@ -68,27 +70,60 @@ increment(productId:any){
 }
 
 }
+ProductPrice:number=0;
+//incerment product
 incremenetTesting(product:any){
-  if(product.id!=5){
-    console.log(this.productFinal)
-    this.productFinal.id=(product.id)++;
-    this.productFinal.price=product.price*this.productFinal.id;
-  }
+  console.log(product)
+  if(product.id!=10){
+    product.id+=1;
+   this.productData=product.price;
+    for(let items of this.cartItemsArray){
+      if(items.id==product.id){
+        this.ProductPrice=items.price;
+        console.log(this.ProductPrice)
+        console.log(product.id)
+        product.price=this.ProductPrice+this.ProductPrice;
+        this.totalProductPrice=product.price;
+      }
+
+    }
+  
+  }   
   
 }
+//decrement product
 decrementTesting(product:any){
   console.log(product.id)
-  if(product.id!=3){
-    this.productFinal.id=product.id--;
-  }
+  if(product.id!=1){
+    console.log(product.price)
+    product.id-=1;
+    this.productData=product.price;
+    for(let items of this.cartItemsArray){
+      if(items.id==product.id){
+        this.ProductPrice=items.price;
+        product.price=this.ProductPrice-this.ProductPrice;
+        this.totalProductPrice=product.price;
+      }
+    }
+  }   
+} 
+//delete individual item form cart
+deleteFromCart(index:number){
+console.log(index)
+console.log(this.cartItemsArray)
+ this.cartItemsArray.splice(index,1);
+ console.log(this.cartItemsArray)
+}
+//removeAllItemsFromCart
+removeAllItemsFromCart(){
+  console.log(this.cartItemsArray);
+  this.cartItemsArray=[];
+  this.cartemptyimage="cart_empty_error_visible";
+  this.cartDataVisibil="carttablehidden";
+}
+
+//proceeded to payment
+proceededToPayment(){
   
 }
-//decrement
-decrement(){
-  if(this.count>1)
-  this.count--
-  this.totalProductPrice=this.productFinal.price*this.count;
-}
-//ngafterview checked
-
 }

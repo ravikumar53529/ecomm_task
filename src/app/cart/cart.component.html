@@ -38,10 +38,12 @@
               </div>
             </td>
             <td>
-              {{ productFinal.price | currency : "INR" }}
+              {{ productFinal.price * productFinal.id | currency : "INR" }}
             </td>
             <td>
-              <button><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              <button (click)="deleteFromCart(indexNo)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
             </td>
           </tr>
         </tbody>
@@ -52,10 +54,20 @@
           </tr>
         </tfoot>
       </table>
-      <div class="remove-btn">
-        <button class="float-right btn btn-danger">
-          <i class="fa fa-trash-o" aria-hidden="true"></i>Remove all Items
-        </button>
+      <div class="d-flex justify-content-between payment_and_remove_btns">
+        <div class="proceed_to_payment">
+          <a class="float-left btn btn-primary" routerLink="/payment">
+            <i class="fa fa-money" aria-hidden="true"></i>Proceed to payment
+          </a>
+        </div>
+        <div class="remove-btn">
+          <button
+            class="float-right btn btn-danger"
+            (click)="removeAllItemsFromCart()"
+          >
+            <i class="fa fa-trash-o" aria-hidden="true"></i>Remove all Items
+          </button>
+        </div>
       </div>
     </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit ,AfterViewChecked,AfterViewInit,ChangeDetectorRef} fr
 import { MatDialog } from '@angular/material/dialog';
 import { AddsellingproductsComponent } from '../addsellingproducts/addsellingproducts.component';
 import { DataService } from '../data.service';
+import { MainproductsService } from '../mainproducts.service';
 import { UpdatesellingproductsComponent } from '../updatesellingproducts/updatesellingproducts.component';
 
 @Component({
@@ -16,9 +17,10 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
   //variables for storing prodcuts data from localstorage
   productsDataFromLocalStorage:any=[];
   productsDataFromLocalStorageFinal:any=[];
-  constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef){
+  mainProductsFromMainProductsService:any;
+  constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef,private mainProductRef:MainproductsService){
     // localStorage.setItem("products",JSON.stringify(this.test.sampleData));
-   
+    console.log(this.mainProductRef.getDetails)
   }
   ngOnInit(){
       this.test.s1.subscribe(
@@ -26,8 +28,12 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
           console.log(data)
         }
       )
+  
       localStorage.setItem("products",JSON.stringify(this.test.sampleData))
-  }
+        this.mainProductRef.getDetails().subscribe((data)=>{
+          this.mainProductsFromMainProductsService=data;
+        })
+    }
   ngAfterViewInit(): void {
     
   }

@@ -24,6 +24,8 @@ import { AddsellingproductsComponent } from './addsellingproducts/addsellingprod
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { UpdatesellingproductsComponent } from './updatesellingproducts/updatesellingproducts.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
+import { MainproductsService } from './mainproducts.service';
 
 
 const routes:Routes=[
@@ -39,6 +41,8 @@ const routes:Routes=[
     path:"productdetails",component:ProductdetailsComponent,canActivate:[DataService]
    },{
     path:"cart",component:CartComponent,canActivate:[DataService]
+   },{
+    path:"payment",component:PaymentComponent,canActivate:[DataService]
    },
    {
     path:"selling",component:SellingComponent,canActivate:[DataService]
@@ -67,7 +71,8 @@ const routes:Routes=[
     AddsellingproductsComponent,
     ProductdetailsComponent,
     UpdatesellingproductsComponent,
-    CartComponent
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,7 @@ const routes:Routes=[
     MatDialogModule
 
   ],
-  providers: [DataService],
+  providers: [DataService,MainproductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

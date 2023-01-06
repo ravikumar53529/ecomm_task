@@ -69,3 +69,25 @@
     </table>
   </div>
 </div>
+<div class="container">
+  <div class="grid">
+    <div *ngFor="let products of mainProductsFromMainProductsService">
+      <div class="card mb-3" style="width: 250px">
+        <img
+          class="card-img-top"
+          src="{{ products.image }}"
+          alt=""
+          width="80px"
+          height="150px"
+        />
+        <div class="card-body">
+          <h4 class="card-title text-danger">{{ products.title }}</h4>
+          <p class="card-text fs-6 p-2">
+            price:{{ products.price | currency : "INR" }}
+          </p>
+          <a href="" class="btn btn-danger">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

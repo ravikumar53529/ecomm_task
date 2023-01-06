@@ -38,6 +38,7 @@ export class DataService implements CanActivate  {
  loggedIn:boolean=false;
  adminCheck1: boolean = false;
  productId:any=null;
+ 
   //route quaurds
   canActivate(): boolean  {
     this.loginDetails=localStorage.getItem("userlogindata");
@@ -54,32 +55,38 @@ export class DataService implements CanActivate  {
 
    userAuthentication(x:any){
     console.log("hello user auth")
-    this.customerLoginData=[];
-    this.customerLoginData.push(x)
+    // this.customerLoginData=[];
+    // this.customerLoginData.push(x)
    //set values into localstorage
    localStorage.setItem("userlogindata",JSON.stringify(this.customerLoginData))
-   this.customerLoginData=[];
+     this.customerLoginData=[];
       //get signupdata from localstorage
       this.signUpDataResponse=localStorage.getItem("usersighnupdata");
       this.userLoginResponse=localStorage.getItem("userlogindata");
-      console.log(JSON.parse(this.signUpDataResponse));
-      console.log(this.userLoginResponse);
-      console.log(JSON.parse(this.userLoginResponse));
-      console.log(JSON.parse(this.signUpDataResponse));
-      for(let y of JSON.parse(this.signUpDataResponse)){ 
-       for(let x of JSON.parse(this.userLoginResponse)){
-          if((x.userEmail)===(y.useremail) && (x.userPassword)===(y.userpassword)){
+      // console.log(JSON.parse(this.signUpDataResponse));
+      // console.log(this.userLoginResponse);
+      // console.log(JSON.parse(this.userLoginResponse));
+      // console.log(JSON.parse(this.signUpDataResponse));
+      // for(let y of JSON.parse(this.signUpDataResponse))
+      let  signUpDataResponseResult=JSON.parse(this.signUpDataResponse);
+      for(let i=0;i<JSON.parse(this.signUpDataResponse).length;i++){ 
+          if((x.useremail===signUpDataResponseResult[i].userEmail) &&(x.userpassword===signUpDataResponseResult[i].userPassword)){
+            // console.log(y.userEmail, x.useremail)
+            alert("success")
             this.r.navigate(['/products']);
-            console.log("hello");
+            // console.log("hello");
             this.loggedIn=true
             this.adminCheck1=this.loggedIn
-            console.log(this.adminCheck1)
+            // console.log(this.adminCheck1)
+            break   
           }
           else{
+            alert("failure")
             this.r.navigate(['/login']);
-            this.loggedIn=false
+            this.loggedIn=false;
+            break;
           }
-       }
+        
       }
     
   }
