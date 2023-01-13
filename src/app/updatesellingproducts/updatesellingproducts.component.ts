@@ -1,5 +1,7 @@
 import { Component,OnInit, ViewChild } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
+import { MainproductsService } from '../mainproducts.service';
 
 @Component({
   selector: 'app-updatesellingproducts',
@@ -10,14 +12,15 @@ export class UpdatesellingproductsComponent implements OnInit {
   productsResponse:any=[];
   prductResponseAfterParse:any=[]
   productId:any;
+  adminUpdateProductsId:any;
  @ViewChild('updateForm') updateData: any;
   name:string="ravi"
   productObj:any;
   //variables for getting product data from localstorage
   productsDataFromLocalStorage:any=[]
   productsDataFromLocalStorageResult:any=[]
-  constructor(private dataServiceRef:DataService){
-    
+  constructor(private dataServiceRef:DataService,private matDialogRef:MatDialogRef<UpdatesellingproductsComponent>,private mainProductsRef:MainproductsService){
+     console.log(this.adminUpdateProductsId);
   }
   ngOnInit(): void {
     this.productId=this.dataServiceRef.updateSellingProductId;
@@ -33,7 +36,7 @@ export class UpdatesellingproductsComponent implements OnInit {
       }
     }
 
-    
+   
   }
   ngAfterViewChecked(): void {
   
@@ -51,5 +54,10 @@ export class UpdatesellingproductsComponent implements OnInit {
     }
   }
   this.updateData.reset();
+  }
+
+  //closeUpdateDialogComponent
+  closeUpdateDialogComponent(){
+  this.matDialogRef.close();
   }
 }

@@ -1,4 +1,9 @@
 <div class="container modelpopup">
+  <div class="d-flex justify-content-end mt-3">
+    <button (click)="closeAddSellingDialog()">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </button>
+  </div>
   <div class="add_products mt-5">
     <form
       [formGroup]="addProductDetails"

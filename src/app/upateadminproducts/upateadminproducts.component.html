@@ -1,0 +1,72 @@
+<div class="container updateAdminprodcut">
+  <div class="d-flex justify-content-end mt-3">
+    <button (click)="closePopup()">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="updateadminproductfieldsection mt-3">
+    <form
+      [formGroup]="updateProductsData"
+      (ngSubmit)="updateProductsDetails(updateProductsData)"
+    >
+      <input
+        type="number"
+        name="prodcutid"
+        id=""
+        class="product_field"
+        placeholder="Enter Id"
+        formControlName="id"
+        [(ngModel)]="productItem.id"
+      />
+      <input
+        type="text"
+        name="prodcuttitle"
+        id=""
+        class="product_field"
+        placeholder="Enter Product Title"
+        formControlName="title"
+        [(ngModel)]="productItem.title"
+      />
+      <input
+        type="number"
+        id=""
+        class="product_field"
+        placeholder="Enter Quantity"
+        formControlName="quantity"
+      />
+      <input
+        type="number"
+        id=""
+        class="product_field"
+        placeholder="Enter Rating"
+        formControlName="rating"
+      />
+      <input
+        type="number"
+        id=""
+        class="product_field"
+        placeholder="Enter Price"
+        formControlName="price"
+      />
+      <input
+        type="text"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="Add Product Category"
+        formControlName="category"
+      />
+      <input
+        type="text"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="Add Product Sub-category"
+        formControlName="subcategory"
+      />
+      <div class="d-flex justify-content-center">
+        <input class="btn btn-success" type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+</div>

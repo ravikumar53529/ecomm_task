@@ -1,8 +1,10 @@
-import { Component, OnInit ,AfterViewChecked,AfterViewInit,ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit ,AfterViewChecked,DoCheck,AfterViewInit,ChangeDetectorRef} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AddadminproductsComponent } from '../addadminproducts/addadminproducts.component';
 import { AddsellingproductsComponent } from '../addsellingproducts/addsellingproducts.component';
 import { DataService } from '../data.service';
 import { MainproductsService } from '../mainproducts.service';
+import { UpateadminproductsComponent } from '../upateadminproducts/upateadminproducts.component';
 import { UpdatesellingproductsComponent } from '../updatesellingproducts/updatesellingproducts.component';
 
 @Component({
@@ -14,25 +16,34 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
   sellingData:any=[];
   productsResponse:any=[];
   updatedSellingData:any=[];
+  inputSearch:any;
   //variables for storing prodcuts data from localstorage
   productsDataFromLocalStorage:any=[];
   productsDataFromLocalStorageFinal:any=[];
   mainProductsFromMainProductsService:any;
   constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef,private mainProductRef:MainproductsService){
     // localStorage.setItem("products",JSON.stringify(this.test.sampleData));
-    console.log(this.mainProductRef.getDetails)
+   
+    
   }
   ngOnInit(){
-      this.test.s1.subscribe(
-        (data:any)=>{
-          console.log(data)
-        }
-      )
-  
+      // this.test.s1.subscribe(
+      //   (data:any)=>{
+      //     console.log(data)
+      //   }
+      // )
+     
       localStorage.setItem("products",JSON.stringify(this.test.sampleData))
-        this.mainProductRef.getDetails().subscribe((data)=>{
+        // this.mainProductRef.getDetails().subscribe((data)=>{
+        //   this.mainProductsFromMainProductsService=data;
+        // })
+
+        // mock Api data
+        this.mainProductRef.getMockApi().subscribe((data)=>{
+          console.log(data)
           this.mainProductsFromMainProductsService=data;
         })
+        this.loadProductsAfterAdding();
     }
   ngAfterViewInit(): void {
     
@@ -95,5 +106,48 @@ deleteProducts(x:any){
 // {
 //   "id":2,"productName":"phone","price":20000,"brand":"samsung","model":"samsung-galaxy","phoneNumber":"8008007328","gmail":"galinki.ravi@gmail.com"
 // }];
+
+
+//Admin products
+//add admin products
+addAdminProducts(){
+  this.matDialogRef.open(AddadminproductsComponent)
+}
+
+//update admin products 
+//access only to admins
+updateProdcutDetails(prodcutId:any){
+  alert("Admins are only access to update products");
+  this.matDialogRef.open(UpateadminproductsComponent);
+  console.log(prodcutId.id);
+  console.log(this.mainProductsFromMainProductsService)
+   let currentProduct=this.mainProductsFromMainProductsService.find((product:any)=>{
+    return  product.id===prodcutId.id;
+   
+   })
+   console.log(currentProduct)
+   this.mainProductRef.sellingAdminProductsId(prodcutId.id);
+}
+
+  //adminProductsview
+  adminProductDeatils(prodcut:any){
+  this.mainProductRef.sellingAdminProductsId(prodcut.id);
+  }
+
+
+//delete admin products
+//only access to admins 
+deleteProdcutDetails(){
+  alert("Admins are only access to delete products");
+}
+
+//loadfunctions after adding products
+
+loadProductsAfterAdding(){
+  this.mainProductRef.getMockApi().subscribe((result)=>{
+    this.mainProductsFromMainProductsService=result;
+  })
+}
+
 
 }

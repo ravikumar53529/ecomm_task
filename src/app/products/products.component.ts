@@ -7,6 +7,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+searchItem:any;
 public produtsData:any=[]; 
 constructor(private serviceData:DataService){
   console.log(serviceData.name)

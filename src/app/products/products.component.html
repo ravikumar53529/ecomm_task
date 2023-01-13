@@ -1,5 +1,11 @@
+<div class="container search_field">
+  <div class="search-and-icon">
+    <i class="fa fa-search sarch-icon" aria-hidden="true"></i>
+    <input type="text" [(ngModel)]="searchItem" class="search-button" />
+  </div>
+</div>
 <div class="grid p-3 justify-content-center">
-  <div *ngFor="let data of produtsData">
+  <div *ngFor="let data of produtsData | filter : searchItem">
     <div class="card m-2">
       <img
         class="card-img-top"

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 
 @Component({
@@ -11,8 +12,10 @@ export class AddsellingproductsComponent {
 
   productDetails:any=[];
 
- constructor(private dataServiceRef:DataService){}
-  addProductDetails=new FormGroup({
+ constructor(private dataServiceRef:DataService,private matDialogRef:MatDialogRef<AddsellingproductsComponent>){}
+  
+ 
+ addProductDetails=new FormGroup({
     productId:new FormControl(''),
     productName:new FormControl(''),
     productPrice:new FormControl(''),
@@ -44,11 +47,16 @@ export class AddsellingproductsComponent {
   addAddressFormArray(){
   const addAddressControl=new FormControl('null',Validators.required);
   (<FormArray>this.addProductDetails.get('sellerAddress')).push(addAddressControl)
-  }
+    return false  
+}
   //deleteseller address form array
   deleteAddressFormArray(index:number){
      console.log(index)
      let sellerAddress=(this.addProductDetails.get('sellerAddress')) as FormArray;
      sellerAddress.removeAt(index);
+  }
+  //close closeAddSellingDialog
+  closeAddSellingDialog(){
+    this.matDialogRef.close();
   }
 }

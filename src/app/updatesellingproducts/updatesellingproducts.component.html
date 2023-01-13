@@ -1,4 +1,9 @@
 <div class="container updatecontainer">
+  <div class="d-flex justify-content-end mt-3">
+    <button (click)="closeUpdateDialogComponent()">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </button>
+  </div>
   <div class="updateproducts mt-5">
     <form #updateForm="ngForm" (ngSubmit)="updateProducts(updateForm.value)">
       <input

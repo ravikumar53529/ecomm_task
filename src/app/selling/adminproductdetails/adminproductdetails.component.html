@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <div class="prodcut-details">
+    <div *ngFor="let product of productItem">
+      <div class="d-flex justify-content-between">
+        <img src="{{ product.image }}" alt="" width="300px" height="300px" />
+        <div class="p-5">
+          <p class="fs-4 text-dark">{{ product.title }}</p>
+          <p class="text-danger fs-1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem hic
+            odit blanditiis quod id animi vero officia velit optio ab?
+          </p>
+          <p class="fs-4 text-dark">
+            Price:{{ product.price | currency : "INR" }}
+          </p>
+        </div>
+      </div>
+
+      <button class="btn btn-primary">Add to cart</button>
+    </div>
+  </div>
+</div>
+<div class="container mt-2">
+  <div class="similar-products">
+    <div *ngFor="let product of productItem">
+      <div class="grid">
+        <div *ngFor="let newproduct of product.similarproducts">
+          <div *ngIf="newproduct">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="{{ newproduct.imageurl1 }}"
+                alt=""
+                width="80px"
+                height="150px"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-danger">{{ newproduct.title }}</h5>
+                <h4 class="card-title text-danger">{{ newproduct.brand }}</h4>
+                <p class="card-text fs-6 p-2">
+                  {{ newproduct.price | currency : "INR" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -31,9 +31,13 @@
             <td>
               <div class="itemsincrement-decrement">
                 <div class="d-flex justify-content-start">
-                  <button (click)="decrementTesting(indexNo)">-</button>
+                  <button (click)="decrementTesting(indexNo, productFinal)">
+                    -
+                  </button>
                   <button>{{ countNumber[indexNo] }}</button>
-                  <button (click)="incremenetTesting(indexNo)">+</button>
+                  <button (click)="incremenetTesting(indexNo, productFinal)">
+                    +
+                  </button>
                 </div>
               </div>
             </td>
@@ -41,7 +45,7 @@
               {{ productFinal.price * countNumber[indexNo] | currency : "INR" }}
             </td>
             <td>
-              <button (click)="deleteFromCart(indexNo)">
+              <button (click)="deleteFromCart(indexNo, productFinal)">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
             </td>
@@ -50,7 +54,7 @@
         <tfoot>
           <tr>
             <td colspan="4">Sub Total Price</td>
-            <td>{{ totalProductPrice | currency : "INR" }}</td>
+            <td>{{ totalProductPrice }}</td>
           </tr>
         </tfoot>
       </table>

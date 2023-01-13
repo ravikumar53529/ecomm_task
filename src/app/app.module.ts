@@ -26,7 +26,12 @@ import { UpdatesellingproductsComponent } from './updatesellingproducts/updatese
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MainproductsService } from './mainproducts.service';
-
+import { AddadminproductsComponent } from './addadminproducts/addadminproducts.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
+import {MatInputModule} from '@angular/material/input';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UpateadminproductsComponent } from './upateadminproducts/upateadminproducts.component';
+import { AdminproductdetailsComponent } from './selling/adminproductdetails/adminproductdetails.component';
 
 const routes:Routes=[
   {
@@ -46,6 +51,9 @@ const routes:Routes=[
    },
    {
     path:"selling",component:SellingComponent,canActivate:[DataService]
+   },
+   {
+    path:'selling/adminproductdetails',component:AdminproductdetailsComponent,canActivate:[DataService]
    },
    {
     path:"login",component:LoginComponent
@@ -72,7 +80,10 @@ const routes:Routes=[
     ProductdetailsComponent,
     UpdatesellingproductsComponent,
     CartComponent,
-    PaymentComponent
+    PaymentComponent,
+    AddadminproductsComponent,
+    UpateadminproductsComponent,
+    AdminproductdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,8 +93,11 @@ const routes:Routes=[
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
-
+    MatDialogModule,
+    NgbModule,
+    MatInputModule,
+    Ng2SearchPipeModule,
+   
   ],
   providers: [DataService,MainproductsService],
   bootstrap: [AppComponent]

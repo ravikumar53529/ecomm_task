@@ -69,25 +69,143 @@
     </table>
   </div>
 </div>
+<div class="container mt-4 mb-4 bg-light">
+  <div class="d-flex justify-content-between">
+    <div>
+      <button class="btn btn-primary" (click)="addAdminProducts()">
+        Add products
+      </button>
+    </div>
+    <div>
+      <input
+        type="text"
+        name=""
+        class="inputsearch"
+        [(ngModel)]="inputSearch"
+      />
+    </div>
+    <div><button class="btn btn-danger">Delete products</button></div>
+  </div>
+</div>
 <div class="container">
   <div class="grid">
-    <div *ngFor="let products of mainProductsFromMainProductsService">
+    <div
+      *ngFor="
+        let products of mainProductsFromMainProductsService
+          | filter : inputSearch
+      "
+    >
       <div class="card mb-3" style="width: 250px">
-        <img
+        <ngb-carousel *ngIf="products">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img
+                src="{{ products.image }}"
+                alt="Random first slide"
+                width="80px"
+                height="200px"
+                class="card-img-top"
+              />
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img
+                src="{{ products.image }}"
+                alt="Random second slide"
+                width="80px"
+                height="200px"
+                class="card-img-top"
+              />
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img
+                src="{{ products.image }}"
+                alt="Random third slide"
+                width="80px"
+                height="200px"
+                class="card-img-top"
+              />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+        <!-- <img
           class="card-img-top"
           src="{{ products.image }}"
           alt=""
           width="80px"
-          height="150px"
-        />
+          height="200px"
+        /> -->
         <div class="card-body">
           <h4 class="card-title text-danger">{{ products.title }}</h4>
           <p class="card-text fs-6 p-2">
             price:{{ products.price | currency : "INR" }}
           </p>
-          <a href="" class="btn btn-danger">Add to cart</a>
+
+          <div *ngFor="let imageurls of products.imagesUrls">
+            <ngb-carousel *ngIf="imageurls">
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img
+                    src="{{ imageurls.imageurl1 }}"
+                    alt="Random first slide"
+                    width="300px"
+                    height="100px"
+                  />
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img
+                    src="{{ imageurls.imageurl2 }}"
+                    alt="Random second slide"
+                    width="300px"
+                    height="100px"
+                  />
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img
+                    src="{{ imageurls.imageurl3 }}"
+                    alt="Random third slide"
+                    width="300px"
+                    height="100px"
+                  />
+                </div>
+              </ng-template>
+            </ngb-carousel>
+
+            <!-- <img
+              src="{{ imageurls.imageurl1 }}"
+              width="100px"
+              height="100px"
+              alt="img1"
+            />
+             -->
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-danger">Add to cart</button>
+            <a
+              routerLink="/selling/adminproductdetails"
+              (click)="adminProductDeatils(products)"
+              class="btn btn-light"
+              ><i class="fa fa-eye" aria-hidden="true"></i
+            ></a>
+            <button (click)="updateProdcutDetails(products)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button (click)="deleteProdcutDetails()">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>

@@ -1,4 +1,5 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,OnInit,DoCheck} from '@angular/core';
+import { ConnectableObservable } from 'rxjs';
 import { DataService } from '../data.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { DataService } from '../data.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit,DoCheck{
   productData:any=[];
   productFinal:any=[];
   eachProductPrice:any=[];//It contains all cart items
@@ -30,7 +31,10 @@ export class CartComponent implements OnInit{
     }
     console.log(this.cartItemsArray)
     console.log(this.productData)
-    
+    this.prices=this.cartItemsArray.map((data:any)=>Number(`${data.price}`))
+    console.log(this.prices);
+  
+  
   //  this.dataServiceRef.getData().subscribe(data=>{
   //   this.productData=data;
   //     for(let x of this.productData){
@@ -41,6 +45,9 @@ export class CartComponent implements OnInit{
   //     }
   //  })
   
+}
+ngDoCheck(): void {
+ this.totalProductPrice=this.prices.reduce((x:any,y:any)=>(x+y))
 }
 //add increment
 name:number=0;
@@ -73,13 +80,19 @@ increment(productId:any){
 ProductPrice:number=0;
 //incerment product
 countNumber:number[]=[];
-incremenetTesting(index:number){
+countPrice:number=0;
+temp:number=0;
+prices:any[]=[];
+incremenetTesting(index:number,product:any){
+  this.prices[index]=product.price;
   for(let i=0;i<this.cartItemsArray.length;i++){
-    this.countNumber.push(1)
+    this.countNumber.push(1);
   }
   console.log(index)
   if(this.countNumber[index]!=5){
     this.countNumber[index]+=1;
+    this.prices[index]=product.price*this.countNumber[index];
+    console.log(this.prices)
   }
  
   // if(product.id!=10){
@@ -100,10 +113,12 @@ incremenetTesting(index:number){
   
 }
 //decrement product
-decrementTesting(index:any){
-  
+decrementTesting(index:any,product:any){
+  this.prices[index]=product.price;
   if(this.countNumber[index]!=1){
     this.countNumber[index]-=1;
+    this.prices[index]=product.price*this.countNumber[index];
+    console.log(this.prices) 
   }
 
   // if(product.id!=1){
@@ -120,11 +135,14 @@ decrementTesting(index:any){
   // }   
 } 
 //delete individual item form cart
-deleteFromCart(index:number){
+deleteFromCart(index:number,product:any){
 console.log(index)
 console.log(this.cartItemsArray)
  this.cartItemsArray.splice(index,1);
  console.log(this.cartItemsArray)
+ this.prices[index]=product.price*this.countNumber[index];
+ this.prices.splice(index,1);
+ console.log(this.prices)
 }
 //removeAllItemsFromCart
 removeAllItemsFromCart(){

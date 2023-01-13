@@ -1,0 +1,12 @@
+.prodcut-details{
+    border: 5px solid rgb(230, 172, 172) ;
+    padding: 10px;
+    margin: 0 auto;
+}
+.similar-products{
+    .grid{
+        display: grid;
+        gap:1rem;
+        grid-template-columns: auto auto auto auto;
+    }
+}
