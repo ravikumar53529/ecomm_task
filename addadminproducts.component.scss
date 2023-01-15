@@ -1,0 +1,46 @@
+.model-popup{
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 1px solid black;
+    overflow: scroll;
+    .addmainproducts{
+        width: 700px;
+        height: auto;
+        margin: 0 auto;
+        border: 5px solid rgb(230,172,172);
+        padding: 10px;
+        .product_field{
+          width: 95%;
+          height:35px;
+          margin-bottom: 5px;
+          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          text-align: center;
+        }
+        .file_field{
+          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          width: 95%;
+          margin-bottom: 5px;
+          text-align: center;
+          justify-content: center;
+          
+        }
+        .addimageurls{
+          width: 95%;
+          height: auto;
+          display: flex;
+          justify-content: space-between;
+          padding: 2px;
+        }
+        .addsellerdetails{
+          width: 95%;
+          height: auto;
+          padding: 2px;
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: auto auto auto ;
+       
+        }
+      
+    }
+}

@@ -1,0 +1,50 @@
+.inputsearch{
+    width: 500px;
+    height: 35px;
+    border-radius: 5px;
+}
+.search{
+    height:35px;
+    width: 150px;
+    border-radius:10px;
+    margin-left:0.5px;
+}
+.search:hover{
+    background-color: rgb(195, 200, 199);
+    color:black ;
+ 
+}
+.selling_header{
+ display: flex;
+ justify-content: space-between;
+ padding: 10px;
+}
+.grid{
+    display: grid;
+    gap:1rem;
+    grid-template-columns: auto auto auto auto;
+    
+}
+//main-items
+.main-items{
+ margin-top: 30px;
+    .main{
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        border-radius: 50%;
+        text-align: center;
+      
+
+
+
+        .men-img{
+            position: relative;
+            bottom:25px
+        }
+    }
+    .main:hover{
+        background-color: aliceblue;
+        }
+ 
+}

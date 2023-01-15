@@ -1,0 +1,180 @@
+<div class="container model-popup">
+  <div class="d-flex justify-content-end mt-3">
+    <button (click)="closeAddAdminDialogComponent()">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="addmainproducts mt-5">
+    <form
+      [formGroup]="addAdminproductDetails"
+      (ngSubmit)="addAdminProductForm(addAdminproductDetails)"
+    >
+      <input
+        type="number"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="Enter Id"
+        formControlName="productId"
+      />
+      <input
+        type="text"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="Enter Product Title"
+        formControlName="title"
+      />
+      <input
+        type="number"
+        placeholder="Enter Quantity"
+        class="product_field"
+        formControlName="quantity"
+      />
+      <input
+        type="number"
+        name=""
+        id=""
+        placeholder="Enter Rating"
+        class="product_field"
+        formControlName="rating"
+      />
+      <input
+        type="number"
+        name=""
+        id=""
+        placeholder="Enter Price"
+        class="product_field"
+        formControlName="price"
+      />
+      <input
+        type="text"
+        name=""
+        class="product_field"
+        id=""
+        placeholder="Please Upload Image Url"
+        formControlName="image"
+      />
+      <div formArrayName="imagesUrls">
+        <div *ngFor="let images of imageUrls; let i = index">
+          <div [formGroupName]="i">
+            <div class="addimageurls">
+              <input
+                type="text"
+                name=""
+                id=""
+                class="product_field"
+                placeholder="image url 1"
+                formControlName="imageurl1"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                class="product_field"
+                placeholder="image url 2"
+                formControlName="imageurl2"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                class="product_field"
+                placeholder="image url 3"
+                formControlName="imageurl3"
+              />
+              <button class="btn btn-danger" (click)="removeImageUrls(i)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="addImageUrls()">
+        +Add more image urls
+      </button>
+      <input
+        type="text"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="Add Product Category"
+        formControlName="category"
+      />
+      <input
+        type="text"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="Add Product Sub-category"
+        formControlName="subcategory"
+      />
+      <div formArrayName="sellerDetails">
+        <div *ngFor="let sellerFields of seller; let i = index">
+          <div [formGroupName]="i">
+            <div class="addsellerdetails">
+              <input
+                type="number"
+                name=""
+                id=""
+                placeholder="Enter product price"
+                class="product_field"
+                formControlName="productPrice"
+              />
+              <textarea
+                cols="12"
+                rows="12"
+                placeholder="Enter seller Address"
+                class="product_field"
+                formControlName="productAddress"
+              ></textarea>
+              <!-- <input type="text" name="" id="" /> -->
+              <input
+                type="text"
+                name=""
+                id=""
+                class="product_field"
+                placeholder="Enter product brand"
+                formControlName="productBrand"
+              />
+              <input type="text"
+              formControlName="title"
+              >
+              <input type="text"
+              formControlName="price"
+              >
+              <input type="text"
+              formControlName="brand"
+              >
+              <input type="text"
+              formControlName="category"
+              >
+              <input type="text"
+              formControlName="vendor"
+              >
+              <input type="text"
+              formControlName="imageurl1"
+              >
+              <input type="text"
+              formControlName="imageurl2"
+              >
+              <input type="text"
+              formControlName="imageurl3"
+              >
+
+              <button class="btn btn-danger" (click)="removeSellerDetails(i)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="addSellerDetails()">
+        +Add similar prodcut details
+      </button>
+      <div class="d-flex justify-content-center">
+        <input type="submit" class="btn btn-success" value="Add Details" />
+      </div>
+    </form>
+  </div>
+</div>

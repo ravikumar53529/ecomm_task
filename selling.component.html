@@ -1,0 +1,271 @@
+<div class="container-fluid  bg-danger p-10 rounded">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img
+          [src]="images[0]"
+          alt="Random first slide"
+          width="100%"
+          height="300px"
+          class="image"
+        />
+      </div>
+      <div class="carousel-caption">
+        <h3>E commerce Express</h3>
+        <p>Dream It,Acheive It.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img
+          [src]="images[1]"
+          alt="Random second slide"
+          width="100%"
+          height="300px"
+          class="image"
+        />
+      </div>
+      <div class="carousel-caption">
+        <h3>E commerce Express</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img
+          [src]="images[2]"
+          alt="Random third slide"
+          width="100%"
+          height="300px"
+          class="image"
+        />
+      </div>
+      <div class="carousel-caption">
+        <h3>E commerce Express</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<div class="container main-items ">
+<div class="d-flex justify-content-between">
+<div class="main"><a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/Justin-Bieber-PNG-Transparent-Image.png" alt="" width="100px" height="100px"><p>Mens</p></a> </div>
+<div class="main"> <a href="" class="text-decoration-none" ><img class="men-img" src="../../assets/menu-pics/PNGPIX-COM-Elegant-Fashionable-Woman-Wearing-Red-Roses-Wreath-on-Her-Head-PNG-Image.png" alt="" width="100px" height="100px"><p>Women</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none" ><img class="men-img" src="../../assets/menu-pics/music.png" alt="" width="100px" height="100px"><p>Music</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/PNGPIX-COM-shoes-PNG-Transparent-Image-shoebluecanvasmen.png" alt="" width="100px" height="100px"><p>Shoes</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/Smart-Boy-PNG-Image.png" alt="" width="100px" height="100px"><p>Kids</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/PNGPIX-COM-Smart-Watch-PNG-Transparent-Image-1.png" alt="" width="100px" height="100px"><p>Watches</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/Boy-Reading-Books-PNG-Image.png" alt="" width="100px" height="100px"><p>Books</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/accessories.png" alt="" width="100px" height="100px"><p>Accessories</p></a></div>
+<div class="main"> <a href="" class="text-decoration-none"><img class="men-img" src="../../assets/menu-pics/sports.png" alt="" width="100px" height="100px"><p>Sports</p></a></div>
+
+</div>
+</div>
+<div class="container mt-4 bg-light">
+  <div class="selling_header">
+    <div>
+      <button class="btn btn-primary" (click)="openDialog()">
+        Add products
+      </button>
+      <!-- <a href="" class="btn btn-primary mr-4">Update products</a>
+      <a href="" class="btn btn-light mr-4">Delete Produts</a> -->
+    </div>
+    <div>
+      <form>
+        <input type="text" name="" class="inputsearch" />
+        <input type="button" name="" id="" value="Search" class="search" />
+      </form>
+    </div>
+    <div>
+      <a href=""
+        ><i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i
+      ></a>
+    </div>
+  </div>
+</div>
+<div class="container mt-4 bg-light">
+  <div *ngIf="sellingData.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Address</th>
+          <th>Add to Cart</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <!--  -->
+      <tbody>
+        <tr *ngFor="let x of sellingData">
+          <td>{{ x.productId }}</td>
+          <td>{{ x.productName }}</td>
+          <td>{{ x.productPrice }}</td>
+          <td>{{ x.productBrand }}</td>
+          <td>{{ x.productModel }}</td>
+          <td>{{ x.productAddress }}</td>
+          <td>
+            <button>
+              <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td>
+            <button (click)="updateProducts(x.productId)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+          <td>
+            <button (click)="deleteProducts(x.productId)" href="">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+</div>
+<div class="container mt-4 mb-4 bg-light">
+  <div class="d-flex justify-content-between">
+    <div>
+      <button class="btn btn-primary" (click)="addAdminProducts()">
+        Add products
+      </button>
+    </div>
+    <div>
+      <input
+        type="text"
+        name=""
+        class="inputsearch"
+        [(ngModel)]="inputSearch"
+      />
+    </div>
+    <div><button class="btn btn-danger">Delete products</button></div>
+  </div>
+</div>
+<div class="container">
+  <div class="grid">
+    <div
+      *ngFor="
+        let products of mainProductsFromMainProductsService
+          | filter : inputSearch
+      "
+    >
+      <div class="card mb-3" style="width: 250px">
+        <ngb-carousel *ngIf="products">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img
+                src="{{ products.image }}"
+                alt="Random first slide"
+                width="80px"
+                height="200px"
+                class="card-img-top"
+              />
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img
+                src="{{ products.image }}"
+                alt="Random second slide"
+                width="80px"
+                height="200px"
+                class="card-img-top"
+              />
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img
+                src="{{ products.image }}"
+                alt="Random third slide"
+                width="80px"
+                height="200px"
+                class="card-img-top"
+              />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+        <!-- <img
+          class="card-img-top"
+          src="{{ products.image }}"
+          alt=""
+          width="80px"
+          height="200px"
+        /> -->
+        <div class="card-body">
+          <h4 class="card-title text-danger">{{ products.title }}</h4>
+          <p class="card-text fs-6 p-2">
+            price:{{ products.price | currency : "INR" }}
+          </p>
+
+          <div *ngFor="let imageurls of products.imagesUrls">
+            <ngb-carousel *ngIf="imageurls">
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img
+                    src="{{ imageurls.imageurl1 }}"
+                    alt="Random first slide"
+                    width="300px"
+                    height="100px"
+                  />
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img
+                    src="{{ imageurls.imageurl2 }}"
+                    alt="Random second slide"
+                    width="300px"
+                    height="100px"
+                  />
+                </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                  <img
+                    src="{{ imageurls.imageurl3 }}"
+                    alt="Random third slide"
+                    width="300px"
+                    height="100px"
+                  />
+                </div>
+              </ng-template>
+            </ngb-carousel>
+
+            <!-- <img
+              src="{{ imageurls.imageurl1 }}"
+              width="100px"
+              height="100px"
+              alt="img1"
+            />
+             -->
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-danger">Add to cart</button>
+            <a
+              routerLink="/selling/adminproductdetails"
+              (click)="adminProductDeatils(products)"
+              class="btn btn-light"
+              ><i class="fa fa-eye" aria-hidden="true"></i
+            ></a>
+            <button (click)="updateProdcutDetails(products)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button (click)="deleteProdcutDetails()">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
