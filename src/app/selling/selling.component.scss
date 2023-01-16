@@ -18,6 +18,17 @@
  display: flex;
  justify-content: space-between;
  padding: 10px;
+ .cart-icon{
+     text-decoration: none;
+    .cart-length{
+        position: relative;
+        bottom:20px;
+        right:12px;
+        font-size: 25px;
+        color: red;
+        font-weight: bold;
+    }
+ }
 }
 .grid{
     display: grid;

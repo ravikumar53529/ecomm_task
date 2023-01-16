@@ -2,7 +2,7 @@
     width:500px;
     height:50px;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top:80px;
     .search-and-icon{ 
       
         i{
@@ -26,4 +26,26 @@
 .grid p{
    text-align: center;
 }
-
+//main-items
+.main-items{
+    margin-top: 30px;
+       .main{
+           width: 100px;
+           height: 100px;
+           background-color: lightblue;
+           border-radius: 50%;
+           text-align: center;
+         
+   
+   
+   
+           .men-img{
+               position: relative;
+               bottom:25px
+           }
+       }
+       .main:hover{
+           background-color: aliceblue;
+           }
+    
+   }

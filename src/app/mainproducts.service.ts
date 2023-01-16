@@ -12,7 +12,7 @@ export class MainproductsService {
   sellingadminprodcutId:number=0;
   private url="../assets/data/mainproducts.json";
   private mockApi="http://localhost:3000/products";
-
+  private mockApiPut="http://localhost:3000/products"
   constructor(private http:HttpClient) { }
   //local json 
   getDetails(): Observable<Mainproducts[]> {
@@ -22,6 +22,17 @@ export class MainproductsService {
   getMockApi():Observable<Mainproducts[]>{
     return this.http.get<Mainproducts[]>(this.mockApi);
   }
+
+  //update product details through mock API
+  updateProductDetails(product:any,id:number){
+   return this.http.put(this.mockApiPut+`/`+`${id}`,product)
+  }
+
+  //delete Product through mock api
+  deletePorductDetails(id:number){
+    return this.http.delete(this.mockApi+`/`+`${id}`)
+  }
+ 
   //mock api posting
  postMockApiData(data:any){
   return this.http.post(this.mockApi,data)

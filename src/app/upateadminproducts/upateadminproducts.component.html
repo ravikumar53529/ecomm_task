@@ -7,45 +7,43 @@
   <div class="updateadminproductfieldsection mt-3">
     <form
       [formGroup]="updateProductsData"
-      (ngSubmit)="updateProductsDetails(updateProductsData)"
+      (ngSubmit)="updateProductsDetails(updateProductsData, productItem[0].id)"
     >
       <input
         type="number"
         name="prodcutid"
         id=""
         class="product_field"
-        placeholder="Enter Id"
+        placeholder="{{ productItem[0].id }}"
         formControlName="id"
-        [(ngModel)]="productItem.id"
       />
       <input
         type="text"
         name="prodcuttitle"
         id=""
         class="product_field"
-        placeholder="Enter Product Title"
+        placeholder="{{ productItem[0].title }}"
         formControlName="title"
-        [(ngModel)]="productItem.title"
       />
       <input
         type="number"
         id=""
         class="product_field"
-        placeholder="Enter Quantity"
+        placeholder="{{ productItem[0].quantity }}"
         formControlName="quantity"
       />
       <input
         type="number"
         id=""
         class="product_field"
-        placeholder="Enter Rating"
+        placeholder="{{ productItem[0].rating.rate }}"
         formControlName="rating"
       />
       <input
         type="number"
         id=""
         class="product_field"
-        placeholder="Enter Price"
+        placeholder="{{ productItem[0].price }}"
         formControlName="price"
       />
       <input
@@ -53,7 +51,50 @@
         name=""
         id=""
         class="product_field"
-        placeholder="Add Product Category"
+        placeholder="{{ productItem[0].image }}"
+        formControlName="image"
+      />
+      <div formArrayName="imageUrls">
+        <div *ngFor="let imageurl of imageUrls; let i = index">
+          <div [formGroupName]="i">
+            <div class="update-image-urls">
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].image }}"
+                formControlName="imageurl1"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].image }}"
+                formControlName="imageurl2"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].image }}"
+                formControlName="imageurl3"
+              />
+              <button class="btn btn-danger" (click)="removeImageUrls(i)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="addImageUrls()">
+        Update Image Urls
+      </button>
+      <input
+        type="text"
+        name=""
+        id=""
+        class="product_field"
+        placeholder="{{ productItem[0].category }}"
         formControlName="category"
       />
       <input
@@ -61,9 +102,82 @@
         name=""
         id=""
         class="product_field"
-        placeholder="Add Product Sub-category"
+        placeholder="{{ productItem[0].subcategory }}"
         formControlName="subcategory"
       />
+      <div formArrayName="sellerDetails">
+        <div *ngFor="let seller of sellerDetails; let i = index">
+          <div [formGroupName]="i">
+            <div class="add-seller-similar_products">
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].title }}
+              
+              "
+                formControlName="title"
+              />
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].price }}"
+                formControlName="price"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].brand }}"
+                formControlName="brand"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].category }}"
+                formControlName="category"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].vendor }}"
+                formControlName="vendor"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].image }}"
+                formControlName="imageurl1"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].image }}"
+                formControlName="imageurl2"
+              />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="{{ productItem[0].image }}"
+                formControlName="imageurl3"
+              />
+              <button class="btn btn-danger" (click)="removeSellerDetails(i)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="addSellerDetails()">
+        Update similar product details
+      </button>
       <div class="d-flex justify-content-center">
         <input class="btn btn-success" type="submit" value="Submit" />
       </div>

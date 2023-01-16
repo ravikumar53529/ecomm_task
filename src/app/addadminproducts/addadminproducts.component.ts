@@ -54,7 +54,15 @@ export class AddadminproductsComponent {
     return this.fb.group({
       productPrice:new FormControl(),
       productAddress:new FormControl(),
-      productBrand:new FormControl()
+      productBrand:new FormControl(),
+      title:new FormControl(),
+      brand:new FormControl(),
+      price:new FormControl(),
+      category:new FormControl(),
+      vendor:new FormControl(),
+      imageurl1:new FormControl(),
+      imageurl2:new FormControl(),
+      imageurl3:new FormControl()
     })
   }
   //add new seller details

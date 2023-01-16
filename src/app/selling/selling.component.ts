@@ -1,5 +1,6 @@
 import { Component, OnInit ,AfterViewChecked,DoCheck,AfterViewInit,ChangeDetectorRef} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AddadminproductsComponent } from '../addadminproducts/addadminproducts.component';
 import { AddsellingproductsComponent } from '../addsellingproducts/addsellingproducts.component';
 import { DataService } from '../data.service';
@@ -17,11 +18,12 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
   productsResponse:any=[];
   updatedSellingData:any=[];
   inputSearch:any;
+  cartLength:number=0;
   //variables for storing prodcuts data from localstorage
   productsDataFromLocalStorage:any=[];
   productsDataFromLocalStorageFinal:any=[];
   mainProductsFromMainProductsService:any;
-  constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef,private mainProductRef:MainproductsService){
+  constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef,private mainProductRef:MainproductsService,private router:Router,private dataServiceRef:DataService){
     // localStorage.setItem("products",JSON.stringify(this.test.sampleData));
    
     
@@ -38,20 +40,22 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
         //   this.mainProductsFromMainProductsService=data;
         // })
 
-        // mock Api data
-        this.mainProductRef.getMockApi().subscribe((data)=>{
-          console.log(data)
-          this.mainProductsFromMainProductsService=data;
-        })
-        this.loadProductsAfterAdding();
+            // mock Api data
+ this.mainProductRef.getMockApi().subscribe((data)=>{
+  this.mainProductsFromMainProductsService=data;
+})
+
+        // this.loadProductsAfterAdding();
     }
   ngAfterViewInit(): void {
-    
+  console.log('hello')
   }
   ngAfterViewChecked(): void {
     this.productsResponse=localStorage.getItem("products")
     this.sellingData=JSON.parse(this.productsResponse);
     this.cdRef.detectChanges(); 
+    //cart length
+    this.cartLength= this.dataServiceRef.cartItems.length;
   }
    
 openDialog(){
@@ -114,6 +118,14 @@ addAdminProducts(){
   this.matDialogRef.open(AddadminproductsComponent)
 }
 
+//add admin prodcuts dirctly to the cart 
+addAdminProdcutsToCart(index:number){
+this.test.cartAddItems(this.mainProductsFromMainProductsService[index])
+}
+
+
+
+
 //update admin products 
 //access only to admins
 updateProdcutDetails(prodcutId:any){
@@ -127,6 +139,7 @@ updateProdcutDetails(prodcutId:any){
    })
    console.log(currentProduct)
    this.mainProductRef.sellingAdminProductsId(prodcutId.id);
+  
 }
 
   //adminProductsview
@@ -137,8 +150,13 @@ updateProdcutDetails(prodcutId:any){
 
 //delete admin products
 //only access to admins 
-deleteProdcutDetails(){
+deleteProdcutDetails(product:any){
   alert("Admins are only access to delete products");
+  console.log(product.id);
+  this.mainProductRef.deletePorductDetails(product.id).subscribe((data)=>{
+    // console.log(data);
+  })
+
 }
 
 //loadfunctions after adding products

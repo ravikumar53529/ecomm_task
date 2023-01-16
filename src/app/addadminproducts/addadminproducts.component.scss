@@ -3,6 +3,8 @@
     height: auto;
     background-color: white;
     border: 1px solid black;
+    overflow-y: scroll;
+    max-height: 500px;
     .addmainproducts{
         width: 700px;
         height: auto;
@@ -24,12 +26,21 @@
           justify-content: center;
           
         }
-        .addsellerdetails,.addimageurls{
+       .addimageurls{
           width: 95%;
           height: auto;
           display: flex;
           justify-content: space-between;
           padding: 2px;
+        }
+         .addsellerdetails{
+          width: 95%;
+          height: auto;
+          padding: 2px;
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: auto auto auto ;
+         
         }
       
     }

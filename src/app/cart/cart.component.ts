@@ -14,6 +14,7 @@ export class CartComponent implements OnInit,DoCheck{
   count:number=1;
   totalProductPrice:number=0;
   itemTotalPrice:number=0;
+  cartLength:number=0;
   cartDataVisibil:string="carttablehidden";
   cartemptyimage:string="cart_empty_error_visible";
  constructor(private dataServiceRef:DataService){
@@ -26,11 +27,14 @@ export class CartComponent implements OnInit,DoCheck{
     this.eachProductPrice=this.dataServiceRef.cartItems;
     this.productData=this.dataServiceRef.cartItems;
     if(this.cartItemsArray.length>0){ 
+      console.log(this.cartItemsArray.length)
       this.cartDataVisibil="carttableshow";
       this.cartemptyimage="cart_empty_error_hidden"
+    }else{
+      this.cartDataVisibil="carttablehidden";
+      this.cartemptyimage="cart_empty_error_visible"
     }
-    console.log(this.cartItemsArray)
-    console.log(this.productData)
+  
     this.prices=this.cartItemsArray.map((data:any)=>Number(`${data.price}`))
     console.log(this.prices);
   
@@ -47,7 +51,13 @@ export class CartComponent implements OnInit,DoCheck{
   
 }
 ngDoCheck(): void {
- this.totalProductPrice=this.prices.reduce((x:any,y:any)=>(x+y))
+  if(this.cartItemsArray.length>0){
+    this.totalProductPrice=this.prices.reduce((x:any,y:any)=>(x+y))
+  }
+
+  //cartLength
+   this.cartLength=this.dataServiceRef.cartItems.length;
+
 }
 //add increment
 name:number=0;
@@ -138,16 +148,28 @@ decrementTesting(index:any,product:any){
 deleteFromCart(index:number,product:any){
 console.log(index)
 console.log(this.cartItemsArray)
- this.cartItemsArray.splice(index,1);
- console.log(this.cartItemsArray)
- this.prices[index]=product.price*this.countNumber[index];
- this.prices.splice(index,1);
- console.log(this.prices)
+if(this.cartItemsArray.length>0){
+  if(this.cartItemsArray.length!=1){
+    this.cartItemsArray.splice(index,1);
+    console.log(this.cartItemsArray);
+    this.prices[index]=product.price*this.countNumber[index];
+    this.prices.splice(index,1);
+  }else{
+    this.cartItemsArray.splice(index,1);
+    console.log(this.cartItemsArray);
+    this.prices[index]=product.price*this.countNumber[index];
+    this.prices.splice(index,1);
+    this.cartemptyimage="cart_empty_error_visible";
+    this.cartDataVisibil="carttablehidden";
+  }
+ 
+}
+
 }
 //removeAllItemsFromCart
 removeAllItemsFromCart(){
   console.log(this.cartItemsArray);
-  this.cartItemsArray=[];
+  this.cartItemsArray.splice(0,this.cartItemsArray.length);
   this.cartemptyimage="cart_empty_error_visible";
   this.cartDataVisibil="carttablehidden";
 }

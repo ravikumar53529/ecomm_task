@@ -1,4 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
+import { DataService } from 'src/app/data.service';
 import { MainproductsService } from 'src/app/mainproducts.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class AdminproductdetailsComponent implements OnInit{
   finalProducts:any;
   productItem:any=[];
   prodcutId:any;
-  constructor(private mainProductRef:MainproductsService){}
+  constructor(private mainProductRef:MainproductsService,private dataServiceRef:DataService){}
   
   ngOnInit(): void {
     this.mainProductRef.getMockApi().subscribe((data)=>{
@@ -27,5 +28,9 @@ export class AdminproductdetailsComponent implements OnInit{
     })
   }
 
-  
+  //ADDD TO CART
+  addToCart(index:number){
+    this.dataServiceRef.cartAddItems(this.productItem[index])
+    
+  }
 }

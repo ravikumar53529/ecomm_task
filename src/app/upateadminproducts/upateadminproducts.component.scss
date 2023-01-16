@@ -3,6 +3,8 @@
     height:auto;
     background-color: white;
     border: 1px solid black;
+    overflow-y: scroll;
+    max-height: 500px;
 .updateadminproductfieldsection{
     width: 700px;
     height: auto;
@@ -16,6 +18,7 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         text-align: center;
     }
+    
    
 }
 }

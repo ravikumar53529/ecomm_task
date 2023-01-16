@@ -16,11 +16,6 @@
         <input type="button" name="" id="" value="Search" class="search" />
       </form>
     </div>
-    <div>
-      <a href=""
-        ><i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i
-      ></a>
-    </div>
   </div>
 </div>
 <div class="container mt-4 bg-light">
@@ -84,7 +79,13 @@
         [(ngModel)]="inputSearch"
       />
     </div>
-    <div><button class="btn btn-danger">Delete products</button></div>
+    <div class="selling_header">
+      <a routerLink="/cart" class="cart-icon">
+        <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i>
+        <span class="cart-length">{{ cartLength }}</span>
+      </a>
+    </div>
+    <!-- <div><button class="btn btn-danger">Delete products</button></div> -->
   </div>
 </div>
 <div class="container">
@@ -92,7 +93,8 @@
     <div
       *ngFor="
         let products of mainProductsFromMainProductsService
-          | filter : inputSearch
+          | filter : inputSearch;
+        let i = index
       "
     >
       <div class="card mb-3" style="width: 250px">
@@ -145,7 +147,7 @@
             price:{{ products.price | currency : "INR" }}
           </p>
 
-          <div *ngFor="let imageurls of products.imagesUrls">
+          <div *ngFor="let imageurls of products.imagesUrls; let i = index">
             <ngb-carousel *ngIf="imageurls">
               <ng-template ngbSlide>
                 <div class="picsum-img-wrapper">
@@ -189,7 +191,12 @@
           </div>
 
           <div class="d-flex justify-content-between">
-            <button class="btn btn-danger">Add to cart</button>
+            <a
+              routerLink="/cart"
+              (click)="addAdminProdcutsToCart(i)"
+              class="btn btn-danger"
+              >Add to cart</a
+            >
             <a
               routerLink="/selling/adminproductdetails"
               (click)="adminProductDeatils(products)"
@@ -199,7 +206,7 @@
             <button (click)="updateProdcutDetails(products)">
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
-            <button (click)="deleteProdcutDetails()">
+            <button (click)="deleteProdcutDetails(products)">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>
