@@ -97,36 +97,11 @@ export class SignupComponent {
 
      }
    }
-   //checking 
-     checking(event: any){
-      console.log(this.userFile)
-      // for(let i=0;i<this.fileEvent.target.files.length;i++){
-      //   let size=this.fileEvent.target.files[i].size;
-      //   let finalsize=((Math.round(size/1024))*10);//from bytes to kb
-      //   this.FileSize=finalsize;
-      // }
-      // console.log(this.fileEvent)
-      // console.log(event)
-      // console.log(this.signUpForm)
-      
-     }
-   //getFilesize details
-   getFileDetails1(c:any){
-    console.log(c.value)
-      if(13<60){
-        return null;
-      }else{
-        return {'filesizeValue':true}
-      }
-   }
-
+ 
    signUpFormResponse(){
-    console.log(this.signUpForm)
     this.customerDetails.push(this.signUpForm.value);
     // set into local storage
-    console.log(this.signUpForm)
     localStorage.setItem("usersighnupdata",JSON.stringify(this.customerDetails));
-    console.log(this.customerDetails);
     this.signUpForm.reset();
   } 
 }

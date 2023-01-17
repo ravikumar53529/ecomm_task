@@ -33,4 +33,11 @@ export class AdminproductdetailsComponent implements OnInit{
     this.dataServiceRef.cartAddItems(this.productItem[index])
     
   }
+
+  //addSimilarProductsToCart
+  addSimilarProductsToCart(index:number,productItem:any){
+   this.dataServiceRef.cartAddItems(this.productItem[index])
+   
+  }
+ 
 }

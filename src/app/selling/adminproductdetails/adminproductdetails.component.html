@@ -1,3 +1,6 @@
+<div class="container pt-3">
+  <a routerLink="/selling" class="btn btn-primary">Selling Page</a>
+</div>
 <div class="container mt-4">
   <div class="prodcut-details">
     <div *ngFor="let product of productItem; let i = index">
@@ -25,7 +28,7 @@
   <div class="similar-products">
     <div *ngFor="let product of productItem">
       <div class="grid">
-        <div *ngFor="let newproduct of product.sellerDetails">
+        <div *ngFor="let newproduct of product.sellerDetails; let i = index">
           <div *ngIf="newproduct">
             <div class="card">
               <img
@@ -41,6 +44,13 @@
                 <p class="card-text fs-6 p-2">
                   {{ newproduct.price | currency : "INR" }}
                 </p>
+                <a
+                  routerLink="/cart"
+                  (click)="addSimilarProductsToCart(i, newproduct)"
+                  class="btn btn-primary"
+                >
+                  Add to cart
+                </a>
               </div>
             </div>
           </div>

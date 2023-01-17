@@ -12,34 +12,30 @@ export class MainproductsService {
   sellingadminprodcutId:number=0;
   private url="../assets/data/mainproducts.json";
   private mockApi="http://localhost:3000/products";
-  private mockApiPut="http://localhost:3000/products"
   constructor(private http:HttpClient) { }
   //local json 
   getDetails(): Observable<Mainproducts[]> {
     return this.http.get<Mainproducts[]>(this.url);
   }
-  //mock api getting
+  //mock api getting for local json
   getMockApi():Observable<Mainproducts[]>{
     return this.http.get<Mainproducts[]>(this.mockApi);
   }
 
-  //update product details through mock API
+  //update product details through json-server mock API
   updateProductDetails(product:any,id:number){
-   return this.http.put(this.mockApiPut+`/`+`${id}`,product)
+   return this.http.put(this.mockApi+`/`+`${id}`,product)
   }
 
-  //delete Product through mock api
+  //delete Product through json-server mock api
   deletePorductDetails(id:number){
     return this.http.delete(this.mockApi+`/`+`${id}`)
   }
  
-  //mock api posting
+  //product data posting json-server mock api
  postMockApiData(data:any){
   return this.http.post(this.mockApi,data)
  }
-//   postProductDetails(data:any){
-//     return this.http.post(this.url,JSON.stringify(data));
-//   }
 
 //sellingAdminProductsId
 sellingAdminProductsId(id:any){

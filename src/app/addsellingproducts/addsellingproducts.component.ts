@@ -33,10 +33,10 @@ export class AddsellingproductsComponent {
     if(this.productDetails.length>0){
       for(let x of this.productDetails){
       
-        this.dataServiceRef.sampleData.push(x)  
+        // this.dataServiceRef.sampleData.push(x)  
       }
-      console.log(this.dataServiceRef.sampleData)
-      localStorage.setItem("products",JSON.stringify(this.dataServiceRef.sampleData))
+      // console.log(this.dataServiceRef.sampleData)
+      // localStorage.setItem("products",JSON.stringify(this.dataServiceRef.sampleData))
       this.productDetails=[]
      
     }

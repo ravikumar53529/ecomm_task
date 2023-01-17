@@ -1,4 +1,4 @@
-import { Component, OnInit ,AfterViewChecked,DoCheck,AfterViewInit,ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit ,AfterViewChecked,ChangeDetectorRef,} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AddadminproductsComponent } from '../addadminproducts/addadminproducts.component';
@@ -13,7 +13,7 @@ import { UpdatesellingproductsComponent } from '../updatesellingproducts/updates
   templateUrl: './selling.component.html',
   styleUrls: ['./selling.component.scss']
 })
-export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
+export class SellingComponent implements OnInit ,AfterViewChecked{
   sellingData:any=[];
   productsResponse:any=[];
   updatedSellingData:any=[];
@@ -23,33 +23,19 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
   productsDataFromLocalStorage:any=[];
   productsDataFromLocalStorageFinal:any=[];
   mainProductsFromMainProductsService:any;
-  constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef,private mainProductRef:MainproductsService,private router:Router,private dataServiceRef:DataService){
-    // localStorage.setItem("products",JSON.stringify(this.test.sampleData));
-   
-    
-  }
+  tempProducts:any;
+  constructor(private matDialogRef:MatDialog,private test:DataService,private cdRef:ChangeDetectorRef,private mainProductRef:MainproductsService,private router:Router,private dataServiceRef:DataService){ }
   ngOnInit(){
-      // this.test.s1.subscribe(
-      //   (data:any)=>{
-      //     console.log(data)
-      //   }
-      // )
-     
-      localStorage.setItem("products",JSON.stringify(this.test.sampleData))
-        // this.mainProductRef.getDetails().subscribe((data)=>{
-        //   this.mainProductsFromMainProductsService=data;
-        // })
+        // mock Api data
+        this.mainProductRef.getMockApi().subscribe((data)=>{
+          this.mainProductsFromMainProductsService=data;
+          this.tempProducts=data;
+        
+        })
+ }
+ 
 
-            // mock Api data
- this.mainProductRef.getMockApi().subscribe((data)=>{
-  this.mainProductsFromMainProductsService=data;
-})
-
-        // this.loadProductsAfterAdding();
-    }
-  ngAfterViewInit(): void {
-  console.log('hello')
-  }
+ //Related to Products page
   ngAfterViewChecked(): void {
     this.productsResponse=localStorage.getItem("products")
     this.sellingData=JSON.parse(this.productsResponse);
@@ -58,50 +44,39 @@ export class SellingComponent implements OnInit ,AfterViewChecked,AfterViewInit{
     this.cartLength= this.dataServiceRef.cartItems.length;
   }
    
-openDialog(){
+  openDialog(){
   this.matDialogRef.open(AddsellingproductsComponent);
-}
-updateProducts(x:any){
-  this.test.updateSellingProducts(x);
-  this.matDialogRef.open(UpdatesellingproductsComponent)
-  console.log(x)
-  for(let y of this.sellingData){
-    if(y.productId==x){
-      // this.sellingData.splice(x-1,1,)
-    }
   }
+
+// updateProducts(x:any){
+//   this.test.updateSellingProducts(x);
+//   this.matDialogRef.open(UpdatesellingproductsComponent)
+//   console.log(x)
+//   for(let y of this.sellingData){
+//     if(y.productId==x){
+      
+//     }
+//   }
   
-}
-deleteProducts(x:any){
-  console.log(x)
-  this.productsDataFromLocalStorage=localStorage.getItem("products");
-  this.productsDataFromLocalStorageFinal=JSON.parse(this.productsDataFromLocalStorage)
-  console.log(this.productsDataFromLocalStorageFinal)
-  console.log(x)
-  for(let y of this.productsDataFromLocalStorageFinal){
-    if((y.productId)===x){
-      console.log(this.productsResponse)
-      console.log(this.productsDataFromLocalStorageFinal)
-      this.productsDataFromLocalStorageFinal.splice(y.productId-1,1)
-      console.log(this.productsDataFromLocalStorageFinal)
-    }
-  }
-  localStorage.setItem("products",JSON.stringify(this.productsDataFromLocalStorageFinal))
-  // for(let y of this.sellingData ){
-  //   if(y.productId===x){
-  //     console.log(x)
-  //     console.log(y.productId)
-  //     console.log(this.sellingData)
-  //     this.productsResponse=localStorage.getItem("products")
-  //     this.sellingData=JSON.parse(this.productsResponse)
-  //     this.updatedSellingData= this.sellingData.slice(x-1,1)
-  //     console.log(this.updatedSellingData)
-  //     // localStorage.setItem("products",JSON.stringify(this.updatedSellingData))
-  //   }
-  // }
+// }
+// deleteProducts(x:any){
+//   console.log(x)
+//   this.productsDataFromLocalStorage=localStorage.getItem("products");
+//   this.productsDataFromLocalStorageFinal=JSON.parse(this.productsDataFromLocalStorage)
+//   console.log(this.productsDataFromLocalStorageFinal)
+//   console.log(x)
+//   for(let y of this.productsDataFromLocalStorageFinal){
+//     if((y.productId)===x){
+//       console.log(this.productsResponse)
+//       console.log(this.productsDataFromLocalStorageFinal)
+//       this.productsDataFromLocalStorageFinal.splice(y.productId-1,1)
+//       console.log(this.productsDataFromLocalStorageFinal)
+//     }
+//   }
+//   localStorage.setItem("products",JSON.stringify(this.productsDataFromLocalStorageFinal))
   
-  console.log(x)
-}
+//   console.log(x)
+// }
 
 
 // sellingData=[{
@@ -122,9 +97,6 @@ addAdminProducts(){
 addAdminProdcutsToCart(index:number){
 this.test.cartAddItems(this.mainProductsFromMainProductsService[index])
 }
-
-
-
 
 //update admin products 
 //access only to admins
@@ -159,13 +131,16 @@ deleteProdcutDetails(product:any){
 
 }
 
-//loadfunctions after adding products
-
-loadProductsAfterAdding(){
-  this.mainProductRef.getMockApi().subscribe((result)=>{
-    this.mainProductsFromMainProductsService=result;
-  })
+//filter based on category
+filter(categoryName:any){
+  if(this.mainProductsFromMainProductsService.length>0 &&categoryName!="all" ){
+    this.mainProductsFromMainProductsService=this.mainProductsFromMainProductsService.filter((product:any)=>{
+      return product.category==categoryName 
+     })
+  }else{
+     this.mainProductsFromMainProductsService=this.tempProducts;
+  }
+ 
 }
-
 
 }

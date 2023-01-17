@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MainproductsService } from '../mainproducts.service';
 
 @Component({
@@ -25,6 +25,7 @@ export class AddadminproductsComponent {
   sellerDetails:new FormArray([])
  })
 }
+ 
   get seller(){
     return (<FormArray>this.addAdminproductDetails.get('sellerDetails')).controls
   }
@@ -73,13 +74,11 @@ export class AddadminproductsComponent {
   }
   //remove seller fields
   removeSellerDetails(index:number){
-    console.log("hell",index)
     this.seller.splice(index,1);
 
   }
-
+//add product details and posting through json-server mock api
  addAdminProductForm(data:any){
-    console.log(data.value);
     this.mainProductsRef.postMockApiData(data.value).subscribe((result)=>{
       console.log(result)
     })
@@ -89,10 +88,6 @@ export class AddadminproductsComponent {
  //closeAddAdminDialogComponent
  closeAddAdminDialogComponent(){
   this.matDialogRef.close();
-   this.loadProductsAfterAdding()
  }
- //Load products after posting
- loadProductsAfterAdding(){
-  
- }
+
 }

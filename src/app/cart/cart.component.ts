@@ -1,5 +1,4 @@
 import { Component ,OnInit,DoCheck} from '@angular/core';
-import { ConnectableObservable } from 'rxjs';
 import { DataService } from '../data.service';
 
 @Component({
@@ -38,17 +37,6 @@ export class CartComponent implements OnInit,DoCheck{
     this.prices=this.cartItemsArray.map((data:any)=>Number(`${data.price}`))
     console.log(this.prices);
   
-  
-  //  this.dataServiceRef.getData().subscribe(data=>{
-  //   this.productData=data;
-  //     for(let x of this.productData){
-  //       if(x.id===this.dataServiceRef.cartItemId){
-  //         this.productFinal=x
-  //          
-  //       }
-  //     }
-  //  })
-  
 }
 ngDoCheck(): void {
   if(this.cartItemsArray.length>0){
@@ -57,34 +45,6 @@ ngDoCheck(): void {
 
   //cartLength
    this.cartLength=this.dataServiceRef.cartItems.length;
-
-}
-//add increment
-name:number=0;
-firstItemPrice:number=0;
-priceEnable:boolean=false;
-increment(productId:any){
-  console.log(productId)
-  for(let x of this.productData){
-    console.log(x.id)
-   if(x.id===productId){
-      this.count++ 
-      this.productFinal=x;
-      this.itemTotalPrice=this.productFinal.price*this.count;
-      this.firstItemPrice=this.itemTotalPrice;
-      this.priceEnable=true;
-    }
-   
-  // this.count++;
-  // for(let eachProduct in this.productData){
-  //  console.log(eachProduct)  
-  //  console.log(index)
-  //  if(eachProduct==index){
-  //   console.log("Yes equal");
-  //  }
-  // }
-  //  this.itemTotalPrice=this.productFinal.price*this.count;
-}
 
 }
 ProductPrice:number=0;
@@ -104,22 +64,7 @@ incremenetTesting(index:number,product:any){
     this.prices[index]=product.price*this.countNumber[index];
     console.log(this.prices)
   }
- 
-  // if(product.id!=10){
-  //   product.id+=1;
-  //  this.productData=product.price;
-  //   for(let items of this.cartItemsArray){
-  //     if(items.id==product.id){
-  //       this.ProductPrice=items.price;
-  //       console.log(this.ProductPrice)
-  //       console.log(product.id)
-  //       product.price=this.ProductPrice+this.ProductPrice;
-  //       this.totalProductPrice=product.price;
-  //     }
 
-  //   }
-  
-  // }   
   
 }
 //decrement product
@@ -131,18 +76,6 @@ decrementTesting(index:any,product:any){
     console.log(this.prices) 
   }
 
-  // if(product.id!=1){
-  //   console.log(product.price)
-  //   product.id-=1;
-  //   this.productData=product.price;
-  //   for(let items of this.cartItemsArray){
-  //     if(items.id==product.id){
-  //       this.ProductPrice=items.price;
-  //       product.price=this.ProductPrice-this.ProductPrice;
-  //       this.totalProductPrice=product.price;
-  //     }
-  //   }
-  // }   
 } 
 //delete individual item form cart
 deleteFromCart(index:number,product:any){

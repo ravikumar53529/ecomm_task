@@ -1,14 +1,172 @@
-<div class="container mt-4 bg-danger p-5 rounded">
+<!-- <div class="container mt-4 bg-danger p-5 rounded">
   <p class="text-light p-2">You can sell products here</p>
+</div> -->
+<!-- main section icons start -->
+
+<div class="container main-items mt-5">
+  <div class="d-flex justify-content-between">
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('all')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/Justin-Bieber-PNG-Transparent-Image.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>All products</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('mens')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/Justin-Bieber-PNG-Transparent-Image.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Mens</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('women')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/PNGPIX-COM-Elegant-Fashionable-Woman-Wearing-Red-Roses-Wreath-on-Her-Head-PNG-Image.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Women</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('kids')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/Smart-Boy-PNG-Image.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Kids</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('shoes')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/PNGPIX-COM-shoes-PNG-Transparent-Image-shoebluecanvasmen.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Shoes</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('electronics')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/electronics.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Electronics</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('watch')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/PNGPIX-COM-Smart-Watch-PNG-Transparent-Image-1.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Watches</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('books')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/Boy-Reading-Books-PNG-Image.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Books</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('accessories')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/accessories.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Accessories</p></a
+      >
+    </div>
+    <div class="main">
+      <a
+        routerLink="/selling"
+        (click)="filter('sports')"
+        class="text-decoration-none"
+        ><img
+          class="men-img"
+          src="../../assets/menu-pics/sports.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <p>Sports</p></a
+      >
+    </div>
+  </div>
 </div>
+
+<!-- main section icons end -->
+<!-- 
 <div class="container mt-4 bg-light">
   <div class="selling_header">
     <div>
       <button class="btn btn-primary" (click)="openDialog()">
         Add products
       </button>
-      <!-- <a href="" class="btn btn-primary mr-4">Update products</a>
-      <a href="" class="btn btn-light mr-4">Delete Produts</a> -->
+    
     </div>
     <div>
       <form>
@@ -34,7 +192,7 @@
           <th>Delete</th>
         </tr>
       </thead>
-      <!--  -->
+    
       <tbody>
         <tr *ngFor="let x of sellingData">
           <td>{{ x.productId }}</td>
@@ -63,32 +221,35 @@
       <tfoot></tfoot>
     </table>
   </div>
-</div>
-<div class="container mt-4 mb-4 bg-light">
-  <div class="d-flex justify-content-between">
-    <div>
-      <button class="btn btn-primary" (click)="addAdminProducts()">
-        Add products
-      </button>
+</div> -->
+<div class="mt-5">
+  <div class="container bg-light search-section">
+    <div class="d-flex justify-content-between">
+      <div>
+        <button class="btn btn-primary" (click)="addAdminProducts()">
+          Add products
+        </button>
+      </div>
+      <div>
+        <input
+          type="text"
+          name=""
+          class="inputsearch"
+          [(ngModel)]="inputSearch"
+        />
+      </div>
+      <div class="selling_header">
+        <a routerLink="/cart" class="cart-icon">
+          <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i>
+          <span class="cart-length">{{ cartLength }}</span>
+        </a>
+      </div>
+      <!-- <div><button class="btn btn-danger">Delete products</button></div> -->
     </div>
-    <div>
-      <input
-        type="text"
-        name=""
-        class="inputsearch"
-        [(ngModel)]="inputSearch"
-      />
-    </div>
-    <div class="selling_header">
-      <a routerLink="/cart" class="cart-icon">
-        <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i>
-        <span class="cart-length">{{ cartLength }}</span>
-      </a>
-    </div>
-    <!-- <div><button class="btn btn-danger">Delete products</button></div> -->
   </div>
 </div>
-<div class="container">
+
+<div class="container mt-5">
   <div class="grid">
     <div
       *ngFor="
