@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
 })
 export class ProductsComponent implements OnInit {
 searchItem:any;
+tempProducts:any;
 public produtsData:any=[]; 
 constructor(private serviceData:DataService){
   
@@ -15,6 +16,7 @@ constructor(private serviceData:DataService){
 ngOnInit(){
  this.serviceData.getData().subscribe(data=>{
   this.produtsData=data;
+  this.tempProducts=data;
   console.log(this.produtsData)
  })
   
@@ -28,6 +30,7 @@ filter(category:any){
   console.log(category.toLowerCase());
   console.log(this.produtsData)
   if(this.produtsData.length>0 && category!="all"){
+    this.produtsData=this.tempProducts;
    let filteredProducts=this.produtsData.filter((product:any)=>{
      return  product.category===category
    })

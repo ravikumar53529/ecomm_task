@@ -64,8 +64,6 @@ incremenetTesting(index:number,product:any){
     this.prices[index]=product.price*this.countNumber[index];
     console.log(this.prices)
   }
-
-  
 }
 //decrement product
 decrementTesting(index:any,product:any){

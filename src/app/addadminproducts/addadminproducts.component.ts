@@ -22,12 +22,12 @@ export class AddadminproductsComponent {
   imagesUrls:new FormArray([]),
   category:new FormControl(''),
   subcategory:new FormControl(''),
-  sellerDetails:new FormArray([])
+  sellerInformation:new FormArray([])
  })
 }
  
   get seller(){
-    return (<FormArray>this.addAdminproductDetails.get('sellerDetails')).controls
+    return (<FormArray>this.addAdminproductDetails.get('sellerInformation')).controls
   }
   
   get imageUrls(){
@@ -61,14 +61,14 @@ export class AddadminproductsComponent {
       price:new FormControl(),
       category:new FormControl(),
       vendor:new FormControl(),
-      imageurl1:new FormControl(),
+      image:new FormControl(),
       imageurl2:new FormControl(),
       imageurl3:new FormControl()
     })
   }
   //add new seller details
   addSellerDetails(){
-    let sellD=<FormArray>this.addAdminproductDetails.get('sellerDetails');
+    let sellD=<FormArray>this.addAdminproductDetails.get('sellerInformation');
     sellD.push(this.SellerDetailsFields())
     return false
   }

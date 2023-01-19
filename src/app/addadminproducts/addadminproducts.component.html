@@ -91,7 +91,7 @@
         placeholder="Add Product Sub-category"
         formControlName="subcategory"
       />
-      <div formArrayName="sellerDetails">
+      <div formArrayName="sellerInformation">
         <div *ngFor="let sellerFields of seller; let i = index">
           <div [formGroupName]="i">
             <div class="addsellerdetails">
@@ -142,18 +142,18 @@
               />
               <input
                 type="text"
-                formControlName="imageurl1"
-                placeholder="Enter Image url1"
+                formControlName="image"
+                placeholder="Enter Image url"
               />
               <input
                 type="text"
                 formControlName="imageurl2"
-                placeholder="Enter Image url2"
+                placeholder="Enter Image url"
               />
               <input
                 type="text"
                 formControlName="imageurl3"
-                placeholder="Enter Image url3"
+                placeholder="Enter Image url"
               />
 
               <button class="btn btn-danger" (click)="removeSellerDetails(i)">

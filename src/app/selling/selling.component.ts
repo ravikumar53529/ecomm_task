@@ -100,17 +100,17 @@ this.test.cartAddItems(this.mainProductsFromMainProductsService[index])
 
 //update admin products 
 //access only to admins
-updateProdcutDetails(prodcutId:any){
+updateProdcutDetails(prodcutItem:any){
   alert("Admins are only access to update products");
   this.matDialogRef.open(UpateadminproductsComponent);
-  console.log(prodcutId.id);
+  console.log(prodcutItem.id);
   console.log(this.mainProductsFromMainProductsService)
    let currentProduct=this.mainProductsFromMainProductsService.find((product:any)=>{
-    return  product.id===prodcutId.id;
+    return  product.id===prodcutItem.id;
    
    })
    console.log(currentProduct)
-   this.mainProductRef.sellingAdminProductsId(prodcutId.id);
+   this.mainProductRef.sellingAdminProductsId(prodcutItem.id);
   
 }
 
@@ -134,9 +134,11 @@ deleteProdcutDetails(product:any){
 //filter based on category
 filter(categoryName:any){
   if(this.mainProductsFromMainProductsService.length>0 &&categoryName!="all" ){
+     this.mainProductsFromMainProductsService=this.tempProducts;
     this.mainProductsFromMainProductsService=this.mainProductsFromMainProductsService.filter((product:any)=>{
       return product.category==categoryName 
      })
+     console.log(this.mainProductsFromMainProductsService)
   }else{
      this.mainProductsFromMainProductsService=this.tempProducts;
   }

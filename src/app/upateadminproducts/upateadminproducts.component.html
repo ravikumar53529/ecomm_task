@@ -14,7 +14,7 @@
         name="prodcutid"
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].id }}"
+        [value]="id"
         formControlName="id"
       />
       <input
@@ -22,28 +22,28 @@
         name="prodcuttitle"
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].title }}"
+        [value]="title"
         formControlName="title"
       />
       <input
         type="number"
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].quantity }}"
+        [value]="quantity"
         formControlName="quantity"
       />
       <input
         type="number"
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].rating.rate }}"
+        [value]="rating"
         formControlName="rating"
       />
       <input
         type="number"
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].price }}"
+        [value]="price"
         formControlName="price"
       />
       <input
@@ -51,7 +51,7 @@
         name=""
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].image }}"
+        [value]="imageUrl"
         formControlName="image"
       />
       <div formArrayName="imageUrls">
@@ -60,23 +60,23 @@
             <div class="update-image-urls">
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].image }}"
+                [value]="image1"
                 formControlName="imageurl1"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].image }}"
+                [value]="image2"
                 formControlName="imageurl2"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].image }}"
+                [value]="image3"
                 formControlName="imageurl3"
               />
               <button class="btn btn-danger" (click)="removeImageUrls(i)">
@@ -94,7 +94,7 @@
         name=""
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].category }}"
+        [value]="category"
         formControlName="category"
       />
       <input
@@ -102,7 +102,7 @@
         name=""
         id=""
         class="product_field"
-        placeholder="{{ productItem[0].subcategory }}"
+        [value]="subcategory"
         formControlName="subcategory"
       />
       <div formArrayName="sellerDetails">
@@ -111,61 +111,59 @@
             <div class="add-seller-similar_products">
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].title }}
-              
-              "
+                [placeholder]="sellerTitle"
                 formControlName="title"
               />
 
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].price }}"
+                [placeholder]="sellerPrice"
                 formControlName="price"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].brand }}"
+                [placeholder]="sellerbrand"
                 formControlName="brand"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].category }}"
+                [placeholder]="sellercategory"
                 formControlName="category"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].vendor }}"
+                [placeholder]="sellervendor"
                 formControlName="vendor"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].image }}"
+                [placeholder]="sellerimage1"
                 formControlName="imageurl1"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].image }}"
+                [placeholder]="sellerimage2"
                 formControlName="imageurl2"
               />
               <input
                 type="text"
-                name=""
+                name="i"
                 id=""
-                placeholder="{{ productItem[0].image }}"
+                [placeholder]="sellerimage3"
                 formControlName="imageurl3"
               />
               <button class="btn btn-danger" (click)="removeSellerDetails(i)">
