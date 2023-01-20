@@ -41,5 +41,8 @@ export class MainproductsService {
 sellingAdminProductsId(id:any){
  this.sellingadminprodcutId=id;
 }
-
+//reloadSellerComponnet()
+reloadSellerComponnet(){
+  
+}
 }
