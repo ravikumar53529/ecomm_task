@@ -103,7 +103,7 @@ this.test.cartAddItems(this.mainProductsFromMainProductsService[index])
 updateProdcutDetails(prodcutItem:any){
   alert("Admins are only access to update products");
   this.matDialogRef.open(UpateadminproductsComponent);
-  console.log(prodcutItem.id);
+  console.log(prodcutItem);
   console.log(this.mainProductsFromMainProductsService)
    let currentProduct=this.mainProductsFromMainProductsService.find((product:any)=>{
     return  product.id===prodcutItem.id;
@@ -144,5 +144,6 @@ filter(categoryName:any){
   }
  
 }
+//reloadSellerComponnet()
 
 }

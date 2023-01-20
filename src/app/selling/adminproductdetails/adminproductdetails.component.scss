@@ -5,13 +5,19 @@
     .grid-sec{
         display: grid;
         gap: 1rem;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: auto auto ;
+    }
+    .main{
+        .similaritems{
+            width:500px;
+            height:500px; 
+        }
     }
 }
 .similar-products{
-    .grid{
-        display: grid;
-        gap:1rem;
-        grid-template-columns: auto auto auto auto;
-    }
+    // .grid{
+    //     display: grid;
+    //     gap:1rem;
+    //     grid-template-columns: auto auto auto auto;
+    // }
 }

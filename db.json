@@ -1,19 +1,20 @@
 {
   "products": [
     {
-      "id": 1,
-      "title": "Men Raymond Cotton shirt",
+      "productId": 1,
+      "title": "Men Raymond Cotton shirthhh",
       "quantity": 1,
       "rating": 500,
       "price": 4.4,
       "image": "https://images-na.ssl-images-amazon.com/images/I/71RHQdRt8eL._UL1500_.jpg",
-      "imageUrls": [],
       "category": "mens",
       "subcategory": "men shirts",
-      "sellerDetails": []
+      "sellerInformation": [],
+      "id": 1
     },
     {
       "id": 2,
+      "productId": 2,
       "title": "Mens Cotton Raymonds Shirt",
       "quantity": 1,
       "rating": 4.3,
@@ -22,10 +23,53 @@
       "imageUrls": [],
       "category": "mens",
       "subcategory": "mens cotton shirts",
-      "sellerDetails": []
+      "sellerInformation": [
+        {
+          "productPrice": 550,
+          "productAddress": "amezon",
+          "productBrand": "raymond",
+          "title": "Mens Raymond cotton shirt",
+          "brand": "raymond",
+          "price": "550",
+          "category": "mens",
+          "subcategory": "mens shirts",
+          "vendor": "amazon",
+          "image": "data:image/jpeg;base64,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",
+          "imageurl2": "https://th.bing.com/th/id/OIP.usq03ljwtafcv6RYeb19jgHaJo?pid=ImgDet&w=197&h=256&c=7&dpr=1.3",
+          "imageurl3": "https://th.bing.com/th/id/OIP.ERZRJB3lQEYXlVNmCv36bgHaHa?pid=ImgDet&w=197&h=197&c=7&dpr=1.3"
+        },
+        {
+          "productPrice": 500,
+          "productAddress": "ebay",
+          "productBrand": "raymond",
+          "title": "Mens Raymond cotton shirt",
+          "brand": "raymond",
+          "price": "500",
+          "category": "mens",
+          "subcategory": "mens shirts",
+          "vendor": "ebay",
+          "image": "https://th.bing.com/th/id/OIP.usq03ljwtafcv6RYeb19jgHaJo?pid=ImgDet&w=197&h=256&c=7&dpr=1.3",
+          "imageurl2": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg",
+          "imageurl3": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg"
+        },
+        {
+          "productPrice": 520,
+          "productAddress": "flipcart",
+          "productBrand": "raymond",
+          "title": "Mens raymond cotton shirt",
+          "brand": "raymond",
+          "price": "520",
+          "category": "mens",
+          "vendor": "flipcart",
+          "image": "https://th.bing.com/th/id/OIP.ERZRJB3lQEYXlVNmCv36bgHaHa?pid=ImgDet&w=197&h=197&c=7&dpr=1.3",
+          "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
+          "imageurl3": "https://static.wixstatic.com/media/17ebce_27362c8f77a54af1a919a3195b68c244~mv2_d_4542_3842_s_4_2.png/v1/fit/w_500,h_500,q_90/file.png"
+        }
+      ]
     },
     {
       "id": 3,
+      "productId": 3,
       "title": "Mens Cotton Raymond Shirt",
       "quantity": 1,
       "rating": 4.5,
@@ -36,6 +80,7 @@
     },
     {
       "id": 4,
+      "productId": 4,
       "title": "Mens Cotton Raymond Shirt",
       "quantity": 1,
       "rating": 4.5,
@@ -46,6 +91,7 @@
     },
     {
       "id": 5,
+      "productId": 5,
       "title": "Mens Cotton Raymond Shirt",
       "quantity": 1,
       "rating": 4.3,
@@ -56,6 +102,7 @@
     },
     {
       "id": 6,
+      "productId": 6,
       "title": "Mens Cotton Raymond Shirt",
       "quantity": 1,
       "rating": 4.7,
@@ -66,6 +113,7 @@
     },
     {
       "id": 7,
+      "productId": 7,
       "title": "Mens Cotton Raymond Shirt",
       "quantity": 1,
       "rating": 4.2,
@@ -76,6 +124,7 @@
     },
     {
       "id": 8,
+      "productId": 8,
       "title": "Mens Cotton Raymond Shirt",
       "quantity": 1,
       "rating": 4,
@@ -86,6 +135,7 @@
     },
     {
       "id": 9,
+      "productId": 9,
       "title": "Womens Clothing",
       "quantity": 1,
       "rating": 4.4,
@@ -96,6 +146,7 @@
     },
     {
       "id": 10,
+      "productId": 10,
       "title": "Womens Clothing",
       "quantity": 1,
       "rating": 4,
@@ -106,6 +157,7 @@
     },
     {
       "id": 11,
+      "productId": 11,
       "title": "Womens Clothing",
       "quantity": 1,
       "rating": 4,
@@ -116,6 +168,7 @@
     },
     {
       "id": 12,
+      "productId": 12,
       "title": "kids Clothing",
       "quantity": 1,
       "rating": 4,
@@ -126,6 +179,7 @@
     },
     {
       "id": 13,
+      "productId": 13,
       "title": "kids Clothing",
       "quantity": 1,
       "rating": 4,
@@ -135,7 +189,8 @@
       "subcategory": "kids dress"
     },
     {
-      "id": 13,
+      "id": 14,
+      "productId": 14,
       "title": "kids Clothing",
       "quantity": 1,
       "rating": 4,
@@ -145,7 +200,8 @@
       "subcategory": "kids dress"
     },
     {
-      "id": 14,
+      "id": 15,
+      "productId": 15,
       "title": "kids Clothing",
       "quantity": 1,
       "rating": 4,
@@ -155,17 +211,8 @@
       "subcategory": "kids dress"
     },
     {
-      "id": 15,
-      "title": "kids Clothing",
-      "quantity": 1,
-      "rating": 4,
-      "price": 628,
-      "image": "../../assets/images/kids/kid5.jpg",
-      "category": "kids",
-      "subcategory": "kids dress"
-    },
-    {
       "id": 16,
+      "productId": 16,
       "title": "kids Clothing",
       "quantity": 1,
       "rating": 4,
@@ -175,7 +222,18 @@
       "subcategory": "kids dress"
     },
     {
+      "id": 17,
       "productId": 17,
+      "title": "kids Clothing",
+      "quantity": 1,
+      "rating": 4,
+      "price": 628,
+      "image": "../../assets/images/kids/kid5.jpg",
+      "category": "kids",
+      "subcategory": "kids dress"
+    },
+    {
+      "productId": 18,
       "title": "mens sports",
       "quantity": 1,
       "rating": 4,
@@ -183,10 +241,51 @@
       "image": "https://res.cloudinary.com/rsc/image/upload/b_rgb:FFFFFF,c_pad,dpr_1.0,f_auto,q_auto,w_700/c_pad,w_700/Y1826442-01",
       "category": "shoes",
       "subcategory": "men shoes",
-      "id": 17
+      "sellerInformation": [
+        {
+          "productPrice": 550,
+          "productAddress": "amazon",
+          "productBrand": "sony",
+          "title": "Ear phones",
+          "brand": "sony",
+          "price": "550",
+          "category": "electronics",
+          "vendor": "amazon",
+          "image": "https://th.bing.com/th/id/OIP.yQx8yGsKXjpBJJU7N5SRWgHaJQ?pid=ImgDet&rs=1",
+          "imageurl2": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg",
+          "imageurl3": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg"
+        },
+        {
+          "productPrice": 560,
+          "productAddress": "ebay",
+          "productBrand": "realme",
+          "title": "Ear Phones",
+          "brand": "realme",
+          "price": "560",
+          "category": "electronics",
+          "vendor": "ebay",
+          "image": "https://th.bing.com/th/id/OIP.tFmxslsDr_dq_lh8SSXXcQHaHa?pid=ImgDet&rs=1",
+          "imageurl2": "https://th.bing.com/th/id/OIP.Rk2jPAhYXun12le8ErAQcAHaHa?pid=ImgDet&w=197&h=197&c=7&dpr=1.3",
+          "imageurl3": "https://img1.wsimg.com/isteam/ip/ed0ca78c-2f22-4902-bd23-eee80c3ed781/OKapi-web-images-2-pack-Okapi-.jpg/:/rs=w:600,h:600,cg:true,m/cr=w:600,h:600"
+        },
+        {
+          "productPrice": 630,
+          "productAddress": "flipcart",
+          "productBrand": "samasung",
+          "title": "Ear phones",
+          "brand": "samsung",
+          "price": "630",
+          "category": "electronics",
+          "vendor": "flipcart",
+          "image": "https://th.bing.com/th/id/OIP.ESfP5E8AqGzUDPPXaKJdgwHaGQ?pid=ImgDet&w=500&h=422&rs=1",
+          "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
+          "imageurl3": "https://static.wixstatic.com/media/17ebce_27362c8f77a54af1a919a3195b68c244~mv2_d_4542_3842_s_4_2.png/v1/fit/w_500,h_500,q_90/file.png"
+        }
+      ],
+      "id": 18
     },
     {
-      "productId": 18,
+      "productId": 19,
       "title": "Men shoes",
       "quantity": 1,
       "rating": 4,
@@ -194,10 +293,10 @@
       "image": "https://th.bing.com/th/id/OIP.a1auzE4jEpy-jki3IiSBUAHaEb?pid=ImgDet&rs=1",
       "category": "shoes",
       "subcategory": "men shoes",
-      "id": 18
+      "id": 19
     },
     {
-      "productId": 19,
+      "productId": 20,
       "title": "Kids Sports Shoes",
       "quantity": 1,
       "rating": 4,
@@ -205,7 +304,7 @@
       "image": "https://th.bing.com/th/id/OIP.VdFq06cI0bxYN0-_Dl8zTAHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7",
       "category": "kids",
       "subcategory": "kids shoes",
-      "id": 19
+      "id": 20
     },
     {
       "productId": 21,
@@ -216,10 +315,10 @@
       "image": "https://th.bing.com/th/id/OIP.YQ2NPxtwNviyFbHwWl87wgHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7",
       "category": "women",
       "subcategory": "women sandles",
-      "id": 20
+      "id": 21
     },
     {
-      "productId": 21,
+      "productId": 22,
       "title": "mens Jeans",
       "quantity": 1,
       "rating": 4,
@@ -227,10 +326,10 @@
       "image": "https://www.bing.com/th?id=OPA.II4ndunpM4SSIg474C474&o=6&dpr=1.3&pid=21.1&w=500&h=400",
       "category": "Men",
       "subcategory": "men jeans",
-      "id": 21
+      "id": 22
     },
     {
-      "productId": 24,
+      "productId": 23,
       "title": "Mens Smart watch",
       "quantity": 1,
       "rating": 4.8,
@@ -332,10 +431,10 @@
           "category": "mens"
         }
       ],
-      "id": 26
+      "id": 23
     },
     {
-      "productId": 41,
+      "productId": 24,
       "title": "Ear phones",
       "quantity": 1,
       "rating": 4.5,
@@ -391,7 +490,45 @@
           "imageurl3": "https://static.wixstatic.com/media/17ebce_27362c8f77a54af1a919a3195b68c244~mv2_d_4542_3842_s_4_2.png/v1/fit/w_500,h_500,q_90/file.png"
         }
       ],
+      "id": 24
+    },
+    {
+      "productId": 26,
+      "title": "botony book",
+      "quantity": 1,
+      "rating": 4.2,
+      "price": 500,
+      "image": "https://th.bing.com/th/id/OIP.sg0kxJrlqndDTQlDnefrfwHaHk?w=195&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "imagesUrls": [],
+      "category": "books",
+      "subcategory": "science books",
+      "sellerInformation": [],
+      "id": 26
+    },
+    {
+      "productId": 27,
+      "title": "books",
+      "quantity": 1,
+      "rating": 2,
+      "price": 15,
+      "image": "https://th.bing.com/th/id/OIP.sg0kxJrlqndDTQlDnefrfwHaHk?w=195&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+      "imagesUrls": [],
+      "category": "book",
+      "subcategory": "book",
+      "sellerInformation": [],
       "id": 27
+    },
+    {
+      "productId": 28,
+      "title": "nature  pic",
+      "quantity": 2,
+      "rating": null,
+      "price": 33,
+      "image": "https://www.bing.com/th?id=OIP.PYipJ_hSncugM2SwnZitvgHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+      "category": "nature",
+      "subcategory": "nature",
+      "sellerInformation": [],
+      "id": 28
     }
   ]
 }

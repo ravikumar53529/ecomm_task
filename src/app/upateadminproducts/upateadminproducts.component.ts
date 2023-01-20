@@ -1,8 +1,11 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, FormControl, FormArray, NumberValueAccessor } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ConnectableObservable } from 'rxjs';
 import { AddadminproductsComponent } from '../addadminproducts/addadminproducts.component';
 import { MainproductsService } from '../mainproducts.service';
+import { RefreshserviceService } from '../refreshservice.service';
 
 @Component({
   selector: 'app-upateadminproducts',
@@ -14,129 +17,69 @@ export class UpateadminproductsComponent implements OnInit {
    adminUpdateProductsId:any;
    updateProductsData:FormGroup;
    productItem:any=[];
-   //variables for populating data in upated form
-   id:any;
-   title:any;
-   quantity:number=0;
-   rating:number=0;
-   price:number=0;
-   category:any;
-   subcategory:any;
-   imageUrl:any;
-   imageUrlsArrayLength:any;
-   image1:any="hello";
-   image2:any;
-   image3:any;
-   sellerTitle:string="";
-   sellerPrice:any;
-   sellerbrand:any;
-   sellercategory:any;
-   sellervendor:any;
-   sellerimage1:any;
-   sellerimage2:any;
-   sellerimage3:any;
-   sellerInformationArrayForLength:any;
-  constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductServiceRef:MainproductsService,private fb:FormBuilder){
-  this.updateProductsData=this.fb.group({
-    id:new FormControl(''),
-    title:new FormControl(''),
-    quantity:new FormControl(''),
-    rating:new FormControl(''),
-    price:new FormControl(''),
-    image:new FormControl(''),
-    imageUrls:new FormArray([]),
-    category:new FormControl(''),
-    subcategory:new FormControl(''),
-    sellerDetails:new FormArray([])
+   products:any;
+   productItemResponse:any;
+   sellerInformationArray:any;
+  constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductServiceRef:MainproductsService,private fb:FormBuilder,private router:Router,private refreshServiceRef:RefreshserviceService){
+  //srvice data
+  this.mainProductServiceRef.getMockApi().subscribe((data)=>{
+    this.products=data;
+    this.adminUpdateProductsId=this.mainProductServiceRef.sellingadminprodcutId;
+    for(let item of this.products){
+      if(item.id==this.adminUpdateProductsId){
+        this.productItemResponse=item;
+      }
+    }
+    //popup values
+    this.editProduct(this.productItemResponse)
   })
+  //formbuilder
+    this.updateProductsData=this.fb.group({
+      productId:[''],
+    title:[''],
+    quantity:[''],
+    rating:[''],
+    price:[''],
+    image:[''],
+    // imageUrls:new FormArray([]),
+    category:[''],
+    subcategory:[''],
+    sellerInformation:new FormArray([])
+  });
+ 
+  
 
   };
   
   ngOnInit(): void {
     this.mainProductServiceRef.getMockApi().subscribe((data)=>{
       this.finalProducts=data;
-      console.log(this.finalProducts)
-      console.log(this.finalProducts)
-       //productsid
-     this.adminUpdateProductsId=this.mainProductServiceRef.sellingadminprodcutId
-     console.log(this.adminUpdateProductsId);
-      for(let x of this.finalProducts){
-       if(x.id==this.adminUpdateProductsId){
-       this.productItem=[x];
-       console.log(this.productItem)
-       console.log(this.productItem[0].id)
-       //populating form details in update form
-       this.id=this.productItem[0].id
-       this.title=this.productItem[0].title;
-       this.quantity=this.productItem[0].quantity;
-       this.rating=this.productItem[0].rating;
-       this.price=this.productItem[0].price;
-       this.imageUrl=this.productItem[0].image;
-       this.category=this.productItem[0].category
-       this.subcategory=this.productItem[0].subcategory;
-       this.imageUrlsArrayLength=this.productItem[0].imagesUrls;
-       console.log(this.imageUrlsArrayLength.length)
-       this.sellerInformationArrayForLength=this.productItem[0].sellerInformation;
-       console.log(this.sellerInformationArrayForLength.length)
-       //for image urls
-        //for sellerImformation
-        if(this.imageUrlsArrayLength.length>0){
-          for(let i=0;i<this.imageUrlsArrayLength.length;i++){
-            this.addImageUrls();
-            if(i!=this.imageUrlsArrayLength.length){
-              this.image1=this.imageUrlsArrayLength[i].imageurl1;
-              this.image2=this.imageUrlsArrayLength[i].imageurl2;
-              this.image3=this.imageUrlsArrayLength[i].imageurl3;    
-            }
-        }
-        }
-       //for sellerImformation
-       if(this.sellerInformationArrayForLength.length>0){
-        for(let i=0;i<this.sellerInformationArrayForLength.length;i++){
-          this.addSellerDetails();
-          if(i!=this.sellerInformationArrayForLength.length){
-           this.sellerTitle=this.sellerInformationArrayForLength[i].title;
-           this.sellerPrice=this.sellerInformationArrayForLength[i].price;
-           this.sellerbrand=this.sellerInformationArrayForLength[i].brand;
-           this.sellercategory=this.sellerInformationArrayForLength[i].category;
-           this.sellerimage1=this.sellerInformationArrayForLength[i].image;
-           this.sellerimage2=this.sellerInformationArrayForLength[i].imageurl2;
-           this.sellerimage3=this.sellerInformationArrayForLength[i].imageurl3;
-          }
-        
-        }
-       }
-       }
-      }
     })
+  }
+
+  //editProduct(patch values)
+  editProduct(product:any){
+    console.log(product)
+    this.updateProductsData.patchValue({
+   productId:product.id,
+    title:product.title,
+    quantity:product.quantity,
+    rating:product.rating,
+    price:product.price,
+    image:product.image,
+    category:product.category,
+    subcategory:product.subcategory
+    
+   })
   
   }
-  
-  //get ImageUrls
-   get imageUrls(){
-    return (<FormArray>this.updateProductsData.get('imageUrls')).controls;
-   }
-
-   //add ImageUrl fields
-   imageUrlFields(){
-    return this.fb.group({
-      imageurl1:new FormControl(),
-      imageurl2:new FormControl(),
-      imageurl3:new FormControl()
-    })
-   }
-
-  //add image urls to the image urls form array with help of form builder
-
-  addImageUrls(){
-    let imageUrls=<FormArray>this.updateProductsData.get('imageUrls');
-    imageUrls.push(this.imageUrlFields())
-    return false
+  //existing Images
+  existingImages(images:any[]){
+  console.log(images)
   }
-  //remove image urls
-  removeImageUrls(index:number){
-    this.imageUrls.splice(index,1);
-  }
+//  get imageUrls(){
+//   return (<FormArray>this.updateProductsData.get('imagesUrls')).controls;
+//  }
   
 
   //sellerDetails
@@ -161,7 +104,7 @@ export class UpateadminproductsComponent implements OnInit {
   //addseller Details
 
   addSellerDetails(){
-    let sellerDetailsArray=<FormArray>this.updateProductsData.get('sellerDetails');
+    let sellerDetailsArray=<FormArray>this.updateProductsData.get(' sellerInformation');
     sellerDetailsArray.push(this.sellerFields());
     return false
   }
@@ -170,18 +113,22 @@ export class UpateadminproductsComponent implements OnInit {
     this.sellerDetails.splice(index,1)
   }
 
-  //close popup
+  //close popup3
   closePopup(){
    this.matDialogRef.close();
   }
   //update product details
   updateProductsDetails(updatedForm:any,id:number){
   console.log(updatedForm.value)
-  console.log(id)
   this.mainProductServiceRef.updateProductDetails(updatedForm.value,id).subscribe((data=>{
-    console.log(data)
   }));
   this.updateProductsData.reset();
   this.matDialogRef.close();
+  this.notifyForChange()
   }
+
+//refrsh method
+notifyForChange(){
+this.refreshServiceRef.notifyAboutChnage();
+}
 }
