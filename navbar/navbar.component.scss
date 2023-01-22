@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+nav{
+    height: auto;
+}
+.adminsuccess{
+    display: none;
+}
+.adminnotlogged{
+    display: block;
+}
+.picture{
+    .pic_sec{
+     position: relative;
+      right: 20px;
+      .img{
+        border-radius: 50%;
+        border: 2px solid white;
+      }
+      .img-upload{
+    
+        .my-file-input{
+          position: relative;
+          bottom: 30px;
+          color: white;
+          left:50px;
+          text-decoration: none;
+          background: url('../../assets/icons/user-icon.jpg');
+          width:20px;
+          height: 20px;
+          border-radius: 10px;
+        }
+        .my-file-input::-webkit-file-upload-button{
+        visibility: hidden;
+        }
+      }
+    }
+
+}
