@@ -22,7 +22,23 @@ nav{
         border-radius: 50%;
         border: 2px solid white;
       }
+      .img-upload{
+        .my-file-input{
+          position: relative;
+          bottom: 30px;
+          color: white;
+          left:50px;
+          text-decoration: none;
+          background-color: white;
+          width:20px;
+          height: 20px;
+          border-radius: 10px;
+        }
+        .my-file-input::-webkit-file-upload-button{
+        visibility: hidden;
+        }
+      }
+    }
 
     }
 
-}

@@ -44,7 +44,7 @@
       </li>
     </ul>
   </div>
-  <div class="picture">
+  <!-- <div class="picture">
     <div class="pic_sec">
       <a href="">
         <img
@@ -57,4 +57,28 @@
       </a>
     </div>
   </div>
+</nav> -->
+  <div class="picture mt-2">
+    <div class="pic_sec">
+      <img class="img" [src]="imageUpdated" alt="" width="60px" height="60px" />
+
+      <div class="img-upload">
+        <input
+          type="file"
+          (change)="imageCrop($event)"
+          class="my-file-input"
+          name=""
+          id=""
+        />
+      </div>
+    </div>
+  </div>
 </nav>
+<div class="d-flex justify-content-end">
+  <img
+    src="../../assets/menu-pics/accessories.png"
+    alt=""
+    width="50px"
+    height="50px"
+  />
+</div>

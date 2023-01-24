@@ -1,11 +1,10 @@
 import { Component,OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, FormControl, FormArray, NumberValueAccessor } from '@angular/forms';
+import { FormGroup,FormBuilder, FormControl, FormArray } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ConnectableObservable } from 'rxjs';
 import { AddadminproductsComponent } from '../addadminproducts/addadminproducts.component';
 import { MainproductsService } from '../mainproducts.service';
-import { RefreshserviceService } from '../refreshservice.service';
+
 
 @Component({
   selector: 'app-upateadminproducts',
@@ -20,7 +19,7 @@ export class UpateadminproductsComponent implements OnInit {
    products:any;
    productItemResponse:any;
    sellerInformationArray:any;
-  constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductServiceRef:MainproductsService,private fb:FormBuilder,private router:Router,private refreshServiceRef:RefreshserviceService){
+  constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductServiceRef:MainproductsService,private fb:FormBuilder,private router:Router){
   //srvice data
   this.mainProductServiceRef.getMockApi().subscribe((data)=>{
     this.products=data;
@@ -124,11 +123,7 @@ export class UpateadminproductsComponent implements OnInit {
   }));
   this.updateProductsData.reset();
   this.matDialogRef.close();
-  this.notifyForChange()
+
   }
 
-//refrsh method
-notifyForChange(){
-this.refreshServiceRef.notifyAboutChnage();
-}
 }

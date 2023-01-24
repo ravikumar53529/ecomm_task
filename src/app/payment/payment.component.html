@@ -22,12 +22,29 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4 bg-danger">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
-        tenetur cum repellendus, vitae fugiat quam cupiditate adipisci culpa
-        similique optio?
-      </p>
+    <div class="col-lg-4">
+      <div class="container">
+        <div class="amount-details">
+          <span class="d-flex justify-space-between"
+            ><p>MRP:</p>
+
+            <p class="text-danger">
+              {{ cartTotalPrice | currency : "INR" }}
+            </p></span
+          >
+          <span><p>Retail Discount:</p></span>
+          <span><p>Offer Price:</p></span>
+          <span><p>Delivery Fees:</p></span>
+        </div>
+        <div class="Total-price">
+          <span class="d-flex justify-space-between">
+            <p>Total Price:</p>
+            <p class="text-danger">
+              {{ cartTotalPrice | currency : "INR" }}
+            </p></span
+          >
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">

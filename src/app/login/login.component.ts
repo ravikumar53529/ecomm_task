@@ -1,21 +1,29 @@
-import { Component,AfterViewChecked} from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { Component,AfterViewChecked,ElementRef} from '@angular/core';
+import { ViewChild,OnInit} from '@angular/core';
+import { Router, } from '@angular/router';
 import { DataService } from '../data.service';
+import { GoogleServiceService } from '../google-service.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements AfterViewChecked {
+
+export class LoginComponent implements AfterViewChecked,OnInit {
+  
+
   @ViewChild('loginForm') customerLoginForm:any
   // customerLoginData:any=[];
   // signUpDataResponse:any=[];
   // userLoginResponse:any=[];
 
-  constructor(private routes:Router,private dataServiceRef:DataService){}
-  
+  constructor(private routes:Router,private dataServiceRef:DataService,private readonly google:GoogleServiceService){}
+   // private readonly google:GoogleServiceService
+  ngOnInit(): void {
+    
+  }
 
   
   ngAfterViewChecked(): void {
@@ -24,6 +32,14 @@ export class LoginComponent implements AfterViewChecked {
   }
   loginUser1(loginForm:any){
        this.dataServiceRef.userAuthentication(loginForm);
+       console.log(loginForm.value);
        this.customerLoginForm.reset();
   }
+   //googleSignIn
+
+  
+   googleSignIn(){
+    this.google.googleSignIn();
+   }
+ 
 }

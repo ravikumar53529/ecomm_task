@@ -37,7 +37,7 @@ export class DataService implements CanActivate  {
       return false
     }
   }
-
+   
    userAuthentication(loginData:any){
    //set values into localstorage
    localStorage.setItem("userlogindata",JSON.stringify(this.customerLoginData))
@@ -83,4 +83,23 @@ export class DataService implements CanActivate  {
     this.cartItems.push(item);
   }
   
+
+  imageCropUrl:any
+  imageFile:any
+  //navbar-icon chnage
+  navbarImageResize(image:any){
+    // this.imageCropUrl=imageUrl;
+    this.imageFile=image;
+  }
+  //croppedImageresult
+  croppedPic:any;
+  croppedImage(croppedImage:any){
+  this.croppedPic=croppedImage;
+  }
+
+  cartFinalPrice:any;
+  //cart and payment final price
+  totalCartPrice(cartPrice:number){
+   this.cartFinalPrice=cartPrice;
+  }
 }

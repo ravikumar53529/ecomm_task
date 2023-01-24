@@ -32,6 +32,10 @@ import {MatInputModule} from '@angular/material/input';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UpateadminproductsComponent } from './upateadminproducts/upateadminproducts.component';
 import { AdminproductdetailsComponent } from './selling/adminproductdetails/adminproductdetails.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ImagecropComponent } from './navbar/imagecrop/imagecrop.component';
+import{CoolSocialLoginButtonsModule} from '@angular-cool/social-login-buttons'
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 const routes:Routes=[
   {
@@ -39,6 +43,9 @@ const routes:Routes=[
   },
    {
     path:"home",component:HomeComponent
+   },
+   {
+    path:"imagecrop",component:ImagecropComponent
    },
    {
    path:"products",component:ProductsComponent ,canActivate:[DataService]
@@ -71,7 +78,6 @@ const routes:Routes=[
     NavbarComponent,
     HomeComponent,
     ProductsComponent,
-    LoginComponent,
     SignupComponent,
     LogoutComponent,
     ProductChildComponent,
@@ -83,7 +89,9 @@ const routes:Routes=[
     PaymentComponent,
     AddadminproductsComponent,
     UpateadminproductsComponent,
-    AdminproductdetailsComponent
+    AdminproductdetailsComponent,
+    ImagecropComponent,
+   LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +105,9 @@ const routes:Routes=[
     NgbModule,
     MatInputModule,
     Ng2SearchPipeModule,
-   
+    ImageCropperModule,
+    CoolSocialLoginButtonsModule,
+    OAuthModule.forRoot()
   ],
   providers: [DataService,MainproductsService],
   bootstrap: [AppComponent]

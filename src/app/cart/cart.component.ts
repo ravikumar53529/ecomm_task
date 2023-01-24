@@ -40,7 +40,8 @@ export class CartComponent implements OnInit,DoCheck{
 }
 ngDoCheck(): void {
   if(this.cartItemsArray.length>0){
-    this.totalProductPrice=this.prices.reduce((x:any,y:any)=>(x+y))
+    this.totalProductPrice=this.prices.reduce((x:any,y:any)=>(x+y));
+    this.dataServiceRef.totalCartPrice(this.totalProductPrice)
   }
 
   //cartLength
