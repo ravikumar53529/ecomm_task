@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import {Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +36,17 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { ImagecropComponent } from './navbar/imagecrop/imagecrop.component';
 import{CoolSocialLoginButtonsModule} from '@angular-cool/social-login-buttons'
 import { OAuthModule } from 'angular-oauth2-oidc';
-
+//abacri
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { GuserdetailsComponent } from './navbar/guserdetails/guserdetails.component';
+import { AddshippingdetailsComponent } from './cart/addshippingdetails/addshippingdetails.component';
 const routes:Routes=[
   {
      path:"",component:LoginComponent
@@ -91,7 +101,10 @@ const routes:Routes=[
     UpateadminproductsComponent,
     AdminproductdetailsComponent,
     ImagecropComponent,
-   LoginComponent
+   LoginComponent,
+   GuserdetailsComponent,
+   AddshippingdetailsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -107,9 +120,35 @@ const routes:Routes=[
     Ng2SearchPipeModule,
     ImageCropperModule,
     CoolSocialLoginButtonsModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
+    SocialLoginModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule
   ],
-  providers: [DataService,MainproductsService],
+  providers: [DataService,MainproductsService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '745680776261-krrecp52qjcqu5t7ds1ncj64vjaevvga.apps.googleusercontent.com'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  
+  
+  
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

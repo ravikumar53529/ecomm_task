@@ -324,7 +324,6 @@
           "imageurl3": "https://static.wixstatic.com/media/17ebce_27362c8f77a54af1a919a3195b68c244~mv2_d_4542_3842_s_4_2.png/v1/fit/w_500,h_500,q_90/file.png"
         }
       ]
-    
     },
     {
       "id": 7,
@@ -561,7 +560,7 @@
           "brand": "raymond",
           "price": "550",
           "category": "women",
-           "subcategory": "womens dress",
+          "subcategory": "womens dress",
           "vendor": "amazon",
           "image": "../../assets/images/women/womencloth3.jpg",
           "imageurl2": "https://th.bing.com/th/id/OIP.usq03ljwtafcv6RYeb19jgHaJo?pid=ImgDet&w=197&h=256&c=7&dpr=1.3",
@@ -575,7 +574,7 @@
           "brand": "raymond",
           "price": "500",
           "category": "women",
-           "subcategory": "womens dress",
+          "subcategory": "womens dress",
           "vendor": "ebay",
           "image": "../../assets/images/women/womencloth3.jpg",
           "imageurl2": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg",
@@ -589,7 +588,7 @@
           "brand": "raymond",
           "price": "520",
           "category": "women",
-           "subcategory": "womens dress",
+          "subcategory": "womens dress",
           "vendor": "flipcart",
           "image": "../../assets/images/women/womencloth3.jpg",
           "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
@@ -626,7 +625,7 @@
           "productPrice": 500,
           "productAddress": "ebay",
           "productBrand": "raymond",
-          "title":"kids Clothing",
+          "title": "kids Clothing",
           "brand": "raymond",
           "price": "500",
           "category": "kids",
@@ -667,7 +666,7 @@
           "productPrice": 550,
           "productAddress": "amezon",
           "productBrand": "raymond",
-          "title":"kids Clothing",
+          "title": "kids Clothing",
           "brand": "raymond",
           "price": "550",
           "category": "kids",
@@ -687,7 +686,7 @@
           "category": "kids",
           "subcategory": "kids dress",
           "vendor": "ebay",
-          "image":"../../assets/images/kids/kids2.jpg",
+          "image": "../../assets/images/kids/kids2.jpg",
           "imageurl2": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg",
           "imageurl3": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg"
         },
@@ -701,7 +700,7 @@
           "category": "kids",
           "subcategory": "kids dress",
           "vendor": "flipcart",
-          "image":"../../assets/images/kids/kids2.jpg",
+          "image": "../../assets/images/kids/kids2.jpg",
           "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
           "imageurl3": "https://static.wixstatic.com/media/17ebce_27362c8f77a54af1a919a3195b68c244~mv2_d_4542_3842_s_4_2.png/v1/fit/w_500,h_500,q_90/file.png"
         }
@@ -726,9 +725,9 @@
           "brand": "raymond",
           "price": "550",
           "category": "kids ",
-      "subcategory": "kids dress",
+          "subcategory": "kids dress",
           "vendor": "amazon",
-          "image":"../../assets/images/kids/kids3.jpg",
+          "image": "../../assets/images/kids/kids3.jpg",
           "imageurl2": "https://th.bing.com/th/id/OIP.usq03ljwtafcv6RYeb19jgHaJo?pid=ImgDet&w=197&h=256&c=7&dpr=1.3",
           "imageurl3": "https://th.bing.com/th/id/OIP.ERZRJB3lQEYXlVNmCv36bgHaHa?pid=ImgDet&w=197&h=197&c=7&dpr=1.3"
         },
@@ -756,7 +755,7 @@
           "category": "kids ",
           "subcategory": "kids dress",
           "vendor": "flipcart",
-          "image":"../../assets/images/kids/kids3.jpg",
+          "image": "../../assets/images/kids/kids3.jpg",
           "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
           "imageurl3": "https://static.wixstatic.com/media/17ebce_27362c8f77a54af1a919a3195b68c244~mv2_d_4542_3842_s_4_2.png/v1/fit/w_500,h_500,q_90/file.png"
         }
@@ -795,7 +794,7 @@
           "brand": "raymond",
           "price": "500",
           "category": "kids ",
-           "subcategory": "kids dress",
+          "subcategory": "kids dress",
           "vendor": "ebay",
           "image": "../../assets/images/kids/kids4.jpg",
           "imageurl2": "https://i5.walmartimages.com/asr/e4c270a3-3eb4-4aab-a0b7-69adc24d2053_1.59a95c032097551c4ae90e1df81513a3.jpeg",
@@ -836,7 +835,7 @@
           "brand": "raymond",
           "price": "550",
           "category": "kids ",
-      "subcategory": "kids dress",
+          "subcategory": "kids dress",
           "vendor": "amazon",
           "image": "https://images-na.ssl-images-amazon.com/images/I/71RHQdRt8eL._UL1500_.jpg",
           "imageurl2": "https://th.bing.com/th/id/OIP.usq03ljwtafcv6RYeb19jgHaJo?pid=ImgDet&w=197&h=256&c=7&dpr=1.3",
@@ -864,7 +863,7 @@
           "brand": "raymond",
           "price": "520",
           "category": "kids ",
-      "subcategory": "kids dress",
+          "subcategory": "kids dress",
           "vendor": "flipcart",
           "image": "https://images-na.ssl-images-amazon.com/images/I/71RHQdRt8eL._UL1500_.jpg",
           "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
@@ -919,7 +918,7 @@
           "brand": "raymond",
           "price": "520",
           "category": "kids ",
-      "subcategory": "kids dress",
+          "subcategory": "kids dress",
           "vendor": "flipcart",
           "image": "../../assets/images/kids/kid5.jpg",
           "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
@@ -959,7 +958,7 @@
           "brand": "realme",
           "price": "560",
           "category": "shoes",
-      "subcategory": "men shoes",
+          "subcategory": "men shoes",
           "vendor": "ebay",
           "image": "https://res.cloudinary.com/rsc/image/upload/b_rgb:FFFFFF,c_pad,dpr_1.0,f_auto,q_auto,w_700/c_pad,w_700/Y1826442-01",
           "imageurl2": "https://th.bing.com/th/id/OIP.Rk2jPAhYXun12le8ErAQcAHaHa?pid=ImgDet&w=197&h=197&c=7&dpr=1.3",
@@ -973,7 +972,7 @@
           "brand": "samsung",
           "price": "630",
           "category": "shoes",
-      "subcategory": "men shoes",
+          "subcategory": "men shoes",
           "vendor": "flipcart",
           "image": "https://res.cloudinary.com/rsc/image/upload/b_rgb:FFFFFF,c_pad,dpr_1.0,f_auto,q_auto,w_700/c_pad,w_700/Y1826442-01",
           "imageurl2": "https://th.bing.com/th/id/R.894a121623414bead29cc464890e173f?rik=%2famibZhLuGv3pw&riu=http%3a%2f%2fhifiman.com%2fattachments%2fimage%2f20160809%2f20160809230545_65434.jpg&ehk=bfbY99h2nHq64Ofj%2fdJTO%2fiRxfsQTxXy3kiBmIYOniw%3d&risl=&pid=ImgRaw&r=0",
@@ -1205,28 +1204,15 @@
     },
     {
       "productId": 27,
-      "title": "books",
+      "title": "book",
       "quantity": 1,
       "rating": 2,
       "price": 15,
       "image": "https://th.bing.com/th/id/OIP.sg0kxJrlqndDTQlDnefrfwHaHk?w=195&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      "imagesUrls": [],
       "category": "book",
       "subcategory": "book",
       "sellerInformation": [],
       "id": 27
-    },
-    {
-      "productId": 28,
-      "title": "nature  pic",
-      "quantity": 2,
-      "rating": null,
-      "price": 33,
-      "image": "https://www.bing.com/th?id=OIP.PYipJ_hSncugM2SwnZitvgHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
-      "category": "nature",
-      "subcategory": "nature",
-      "sellerInformation": [],
-      "id": 28
     }
   ]
 }

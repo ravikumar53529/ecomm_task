@@ -16,12 +16,13 @@ export class ImagecropComponent {
     this.imageEvent=this.dataServiceRef.imageFile;
     console.log(this.imageEvent)
     this.fileChangeEvent(this.imageEvent);
+    
   }
 //image crop
 imageChangedEvent: any = '';
 croppedImage: any = '';
 
-fileChangeEvent(event: any): void {
+fileChangeEvent(event:any): void {
   console.log(event)
     this.imageChangedEvent = event;
 }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import { FormArray, FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MainproductsService } from '../mainproducts.service';
+import { SellingComponent } from '../selling/selling.component';
 
 @Component({
   selector: 'app-addadminproducts',
@@ -11,8 +13,8 @@ import { MainproductsService } from '../mainproducts.service';
 export class AddadminproductsComponent {
   addAdminproductDetails:FormGroup
 
- constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductsRef:MainproductsService,private fb:FormBuilder){
- this.addAdminproductDetails=this.fb.group({
+ constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductsRef:MainproductsService,private fb:FormBuilder,private routerRef:Router){
+  this.addAdminproductDetails=this.fb.group({
   productId:new FormControl(''),
   title:new FormControl(''),
   quantity:new FormControl(''),
@@ -25,7 +27,7 @@ export class AddadminproductsComponent {
   sellerInformation:new FormArray([])
  })
 }
- 
+
   get seller(){
     return (<FormArray>this.addAdminproductDetails.get('sellerInformation')).controls
   }
@@ -84,6 +86,7 @@ export class AddadminproductsComponent {
     })
     this.addAdminproductDetails.reset();
     this.matDialogRef.close();
+    this.routerRef.navigate(['/products'])
  }
  //closeAddAdminDialogComponent
  closeAddAdminDialogComponent(){

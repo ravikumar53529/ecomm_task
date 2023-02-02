@@ -25,12 +25,14 @@ export class DataService implements CanActivate  {
  loggedIn:boolean=false;
  adminCheck1: boolean = false;
  productId:any=null;
- 
+ googleUser:any;
+ googleUserFromLocalStorage:any
   //route quaurds
   canActivate(): boolean  {
     this.loginDetails=localStorage.getItem("userlogindata");
+    this.googleUserFromLocalStorage=localStorage.getItem("googleUser");
     // console.log(JSON.parse(this.loginDetails));
-    if(this.loggedIn){
+    if(this.loggedIn || this.googleUserFromLocalStorage ){
       return true
     }else{
       this.r.navigate(['/login']);
@@ -38,7 +40,9 @@ export class DataService implements CanActivate  {
     }
   }
    
-   userAuthentication(loginData:any){
+   userAuthentication(loginData:any,userDetails:any){
+    //googleUserDetails
+   this.googleUser=userDetails;
    //set values into localstorage
    localStorage.setItem("userlogindata",JSON.stringify(this.customerLoginData))
      this.customerLoginData=[];
@@ -47,10 +51,12 @@ export class DataService implements CanActivate  {
       this.userLoginResponse=localStorage.getItem("userlogindata");
       let  signUpDataResponseResult=JSON.parse(this.signUpDataResponse);
       for(let i=0;i<JSON.parse(this.signUpDataResponse).length;i++){ 
-          if((loginData.useremail===signUpDataResponseResult[i].userEmail) &&(loginData.userpassword===signUpDataResponseResult[i].userPassword)){
+          if(  ((loginData.useremail===signUpDataResponseResult[i].userEmail) &&(loginData.userpassword===signUpDataResponseResult[i].userPassword))  || 
+          
+          this.googleUser!=null){
             alert("success")
-            this.r.navigate(['/products']);
             this.loggedIn=true
+            this.r.navigate(['/products']);
             this.adminCheck1=this.loggedIn
             break   
           }

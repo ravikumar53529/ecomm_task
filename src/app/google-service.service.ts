@@ -19,6 +19,7 @@ export class GoogleServiceService {
   constructor(private readonly outhService:OAuthService) {
    
    }
+   googleUserDetails:any;
   googleSignIn(){
     this.outhService.configure(oAuthConfig)
     this.outhService.loadDiscoveryDocument().then(()=>{
@@ -27,8 +28,7 @@ export class GoogleServiceService {
           this.outhService.initLoginFlow();
         }else{
           this.outhService.loadUserProfile().then((userprofile)=>{
-            console.log(JSON.stringify(userprofile))
-          
+            this.googleUserDetails=userprofile
           })
         }
       })

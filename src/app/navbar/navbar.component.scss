@@ -5,19 +5,17 @@
 nav{
     height: auto;
 }
-.adminsuccess{
+.adminsuccess{ 
     display: none;
 }
 .adminnotlogged{
     display: block;
 }
 .picture{
-
     .pic_sec{
      position: relative;
       right: 20px;
       padding: 3px;
-      
       .img{
         border-radius: 50%;
         border: 2px solid white;
@@ -35,7 +33,7 @@ nav{
           border-radius: 10px;
         }
         .my-file-input::-webkit-file-upload-button{
-        visibility: hidden;
+         visibility: hidden;
         }
       }
     }

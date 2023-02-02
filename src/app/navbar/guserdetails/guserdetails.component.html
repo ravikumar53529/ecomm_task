@@ -1,0 +1,29 @@
+<div class="container main-sec">
+  <div class="d-flex justify-content-end mt-2">
+    <button (click)="popupclick()">close</button>
+  </div>
+  <table class="table" *ngIf="googleUserResponse; else elseBlock">
+    <thead>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Profile Pic</th>
+    </thead>
+    <tbody>
+      <td>{{ googleUserResponse.name }}</td>
+      <td>{{ googleUserResponse.email }}</td>
+      <td>
+        <img
+          src="{{ googleUserResponse.photoUrl }}"
+          alt=""
+          width="60px"
+          height="60px"
+        />
+      </td>
+    </tbody>
+  </table>
+  <ng-template #elseBlock>
+    <div class="container d-flex justify-content-center mt-2">
+      <h3 class="text-danger">Please Registered With Google</h3>
+    </div>
+  </ng-template>
+</div>

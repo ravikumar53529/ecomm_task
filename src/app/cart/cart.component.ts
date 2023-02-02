@@ -1,5 +1,7 @@
 import { Component ,OnInit,DoCheck} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service';
+import { AddshippingdetailsComponent } from './addshippingdetails/addshippingdetails.component';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,7 @@ export class CartComponent implements OnInit,DoCheck{
   cartLength:number=0;
   cartDataVisibil:string="carttablehidden";
   cartemptyimage:string="cart_empty_error_visible";
- constructor(private dataServiceRef:DataService){
+ constructor(private dataServiceRef:DataService,private matDialogRef:MatDialog){
    console.log(this.dataServiceRef.cartItemId)
    
  }
@@ -109,5 +111,9 @@ removeAllItemsFromCart(){
 //proceeded to payment
 proceededToPayment(){
   
+}
+//addshipping details
+addShippingDetails(){
+ this.matDialogRef.open(AddshippingdetailsComponent)
 }
 }
