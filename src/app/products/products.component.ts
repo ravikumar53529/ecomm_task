@@ -1,51 +1,40 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-searchItem:any;
-tempProducts:any;
-public produtsData:any=[]; 
-constructor(private serviceData:DataService){
-  
-}
-ngOnInit(){
- this.serviceData.getData().subscribe(data=>{
-  this.produtsData=data;
-  this.tempProducts=data;
-  console.log(this.produtsData)
- })
-  
-}
-getId(x:number){
- this.serviceData.getId(x)
-}
-
-//filter items
-filter(category:any){
-  console.log(category.toLowerCase());
-  console.log(this.produtsData)
-  if(this.produtsData.length>0 && category!="all"){
-    this.produtsData=this.tempProducts;
-   let filteredProducts=this.produtsData.filter((product:any)=>{
-     return  product.category===category
-   })
-  
-   this.produtsData=filteredProducts;
-   console.log(this.produtsData)
-    // filteredProducts.forEach((element:any) => {
-    //   console.log(element)
-    // });
-  }else{
-    this.serviceData.getData().subscribe(data=>{
-      this.produtsData=data;
-      console.log(this.produtsData)
-    })
+  searchItem: string = '';
+  tempProducts: Object = {};
+  public produtsData: any;
+  constructor(private serviceData: DataService) {}
+  ngOnInit(): void {
+    this.serviceData.getData().subscribe((data) => {
+      this.produtsData = data;
+      this.tempProducts = data;
+    });
   }
-}
+  getId(id: number): void {
+    this.serviceData.getId(id);
+  }
 
+  //filter items
+  filter(category: string) {
+    if (this.produtsData.length > 0 && category != 'all') {
+      console.log(this.produtsData);
+      this.produtsData = this.tempProducts;
+      let filteredProducts = this.produtsData.filter((product: any) => {
+        return product.category === category;
+      });
+
+      this.produtsData = filteredProducts;
+    } else {
+      this.serviceData.getData().subscribe((data) => {
+        this.produtsData = data;
+      });
+    }
+  }
 }

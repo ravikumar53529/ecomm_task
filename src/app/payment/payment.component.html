@@ -6,19 +6,24 @@
         <div class="col-lg-5">
           <div class="payment_sidebar">
             <ul>
-              <li><a href=""> ATM/DEBIT CARD</a></li>
-              <li><a href=""> CREDIT CARD</a></li>
-              <li><a href="">EMI</a></li>
-              <li><a href="">INTERNET BANKING</a></li>
-              <li><a href=""> GOOGLE/PHONE PAY</a></li>
+              <li><a href="#"> ATM/DEBIT CARD</a></li>
+              <li><a href="#"> CREDIT CARD</a></li>
+              <li><a href="#">EMI</a></li>
+              <li><a href="#">INTERNET BANKING</a></li>
+              <li><a href="#"> GOOGLE/PHONE PAY</a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-3">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam,
-            reiciendis.
-          </p>
+          <h5 class="text-success">Stripe Payment gateway</h5>
+          <div id="one">
+            <button
+              (click)="checkout(cartTotalPrice)"
+              class="btn btn-primary btn-block"
+            >
+              Pay {{ cartTotalPrice | currency : "INR" }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -27,14 +32,27 @@
         <div class="amount-details">
           <span class="d-flex justify-space-between"
             ><p>MRP:</p>
-
             <p class="text-danger">
               {{ cartTotalPrice | currency : "INR" }}
             </p></span
           >
-          <span><p>Retail Discount:</p></span>
-          <span><p>Offer Price:</p></span>
-          <span><p>Delivery Fees:</p></span>
+
+          <span
+            ><p class="text-danger">
+              Retail Discount: {{ 00 | currency : "INR" }}
+            </p></span
+          >
+
+          <span
+            ><p class="text-danger">
+              Offer Price: {{ 00 | currency : "INR" }}
+            </p></span
+          >
+          <span
+            ><p class="text-danger">
+              Delivery Fees: {{ 00 | currency : "INR" }}
+            </p></span
+          >
         </div>
         <div class="Total-price">
           <span class="d-flex justify-space-between">
@@ -48,13 +66,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12 bg-success">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-        suscipit libero tenetur repellat repudiandae laboriosam dolor odit
-        tempora odio reprehenderit fugit laudantium pariatur eos deleniti,
-        incidunt a id vel ducimus facilis totam atque dolorum. Iste eum illo
-        quos illum nam.
+    <div class="col-lg-12 bg-dark">
+      <p class="text-white d-flex justify-content-center">
+        <span
+          ><i class="fa fa-copyright" aria-hidden="true"></i>All Rights
+          Reserved||Secured payment gateway</span
+        >
       </p>
     </div>
   </div>

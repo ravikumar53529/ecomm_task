@@ -1,4 +1,9 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewChecked,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -15,24 +20,24 @@ import { UpdatesellingproductsComponent } from '../updatesellingproducts/updates
   styleUrls: ['./selling.component.scss'],
 })
 export class SellingComponent implements OnInit, AfterViewChecked {
-  sellingData: any = [];
+  sellingData: Object = [];
   productsResponse: any = [];
-  updatedSellingData: any = [];
-  inputSearch: any;
+  updatedSellingData: Object = [];
+  inputSearch: string = '';
   cartLength: number = 0;
   //variables for storing prodcuts data from localstorage
-  productsDataFromLocalStorage: any = [];
-  productsDataFromLocalStorageFinal: any = [];
+  productsDataFromLocalStorage: Object = [];
+  productsDataFromLocalStorageFinal: Array<any> = [];
   mainProductsFromMainProductsService: any;
-  tempProducts: any;
-
+  tempProducts: Object = [];
   private subscriptionName: Subscription | undefined;
   constructor(
     private matDialogRef: MatDialog,
     private test: DataService,
     private mainProductRef: MainproductsService,
     private router: Router,
-    private dataServiceRef: DataService
+    private dataServiceRef: DataService,
+    private cdref: ChangeDetectorRef
   ) {
     // mock Api data
     this.subscriptionName = this.mainProductRef
@@ -47,6 +52,8 @@ export class SellingComponent implements OnInit, AfterViewChecked {
     this.mainProductRef.getMockApi().subscribe((data) => {
       this.mainProductsFromMainProductsService = data;
       this.tempProducts = data;
+      console.log(typeof data);
+      console.log(typeof this.tempProducts);
     });
   }
 
@@ -58,52 +65,16 @@ export class SellingComponent implements OnInit, AfterViewChecked {
     this.sellingData = JSON.parse(this.productsResponse);
     //cart length
     this.cartLength = this.dataServiceRef.cartItems.length;
+    this.cdref.detectChanges();
   }
 
   openDialog() {
     this.matDialogRef.open(AddsellingproductsComponent);
   }
 
-  // updateProducts(x:any){
-  //   this.test.updateSellingProducts(x);
-  //   this.matDialogRef.open(UpdatesellingproductsComponent)
-  //   console.log(x)
-  //   for(let y of this.sellingData){
-  //     if(y.productId==x){
-
-  //     }
-  //   }
-
-  // }
-  // deleteProducts(x:any){
-  //   console.log(x)
-  //   this.productsDataFromLocalStorage=localStorage.getItem("products");
-  //   this.productsDataFromLocalStorageFinal=JSON.parse(this.productsDataFromLocalStorage)
-  //   console.log(this.productsDataFromLocalStorageFinal)
-  //   console.log(x)
-  //   for(let y of this.productsDataFromLocalStorageFinal){
-  //     if((y.productId)===x){
-  //       console.log(this.productsResponse)
-  //       console.log(this.productsDataFromLocalStorageFinal)
-  //       this.productsDataFromLocalStorageFinal.splice(y.productId-1,1)
-  //       console.log(this.productsDataFromLocalStorageFinal)
-  //     }
-  //   }
-  //   localStorage.setItem("products",JSON.stringify(this.productsDataFromLocalStorageFinal))
-
-  //   console.log(x)
-  // }
-
-  // sellingData=[{
-  //   "id":1,"productName":"watch","price":2000,"brand":"fastrack","model":"fasttrack-s32","phoneNumber":"944115353529","gmail":"galinki.ravi33@gmail.com"
-  // },
-  // {
-  //   "id":2,"productName":"phone","price":20000,"brand":"samsung","model":"samsung-galaxy","phoneNumber":"8008007328","gmail":"galinki.ravi@gmail.com"
-  // }];
-
   //Admin products
   //add admin products
-  addAdminProducts() {
+  addAdminProducts(): void {
     this.matDialogRef.open(AddadminproductsComponent);
   }
 
@@ -114,7 +85,7 @@ export class SellingComponent implements OnInit, AfterViewChecked {
 
   //update admin products
   //access only to admins
-  updateProdcutDetails(prodcutItem: any) {
+  updateProdcutDetails(prodcutItem: any): void {
     alert('Admins are only access to update products');
     this.matDialogRef.open(UpateadminproductsComponent);
     console.log(prodcutItem);
@@ -129,22 +100,22 @@ export class SellingComponent implements OnInit, AfterViewChecked {
   }
 
   //adminProductsview
-  adminProductDeatils(prodcut: any) {
-    this.mainProductRef.sellingAdminProductsId(prodcut.id);
+  adminProductDeatils(product: any): void {
+    this.mainProductRef.sellingAdminProductsId(product.id);
   }
 
   //delete admin products
   //only access to admins
-  deleteProdcutDetails(product: any) {
+  deleteProdcutDetails(product: any): void {
     alert('Admins are only access to delete products');
     console.log(product.id);
-    this.mainProductRef.deletePorductDetails(product.id).subscribe((data) => {
-      // console.log(data);
-    });
+    this.mainProductRef
+      .deletePorductDetails(product.id)
+      .subscribe((data) => {});
   }
 
   //filter based on category
-  filter(categoryName: any) {
+  filter(categoryName: string) {
     if (
       this.mainProductsFromMainProductsService.length > 0 &&
       categoryName != 'all'
@@ -160,7 +131,7 @@ export class SellingComponent implements OnInit, AfterViewChecked {
     }
   }
   //reloadSellerComponnet()
-  reloadSellerComponent() {
+  reloadSellerComponent(): void {
     // mock Api data
     this.mainProductRef.getMockApi().subscribe((data) => {
       this.mainProductsFromMainProductsService = data;

@@ -1,5 +1,11 @@
-import { Component, } from '@angular/core';
-import { FormArray, FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MainproductsService } from '../mainproducts.service';
@@ -8,89 +14,97 @@ import { SellingComponent } from '../selling/selling.component';
 @Component({
   selector: 'app-addadminproducts',
   templateUrl: './addadminproducts.component.html',
-  styleUrls: ['./addadminproducts.component.scss']
+  styleUrls: ['./addadminproducts.component.scss'],
 })
 export class AddadminproductsComponent {
-  addAdminproductDetails:FormGroup
+  addAdminproductDetails: FormGroup;
 
- constructor(private matDialogRef:MatDialogRef<AddadminproductsComponent>,private mainProductsRef:MainproductsService,private fb:FormBuilder,private routerRef:Router){
-  this.addAdminproductDetails=this.fb.group({
-  productId:new FormControl(''),
-  title:new FormControl(''),
-  quantity:new FormControl(''),
-  rating:new FormControl(''),
-  price:new FormControl(''),
-  image:new FormControl(''),
-  imagesUrls:new FormArray([]),
-  category:new FormControl(''),
-  subcategory:new FormControl(''),
-  sellerInformation:new FormArray([])
- })
-}
+  constructor(
+    private matDialogRef: MatDialogRef<AddadminproductsComponent>,
+    private mainProductsRef: MainproductsService,
+    private fb: FormBuilder,
+    private routerRef: Router
+  ) {
+    this.addAdminproductDetails = this.fb.group({
+      productId: new FormControl(''),
+      title: new FormControl(''),
+      quantity: new FormControl(''),
+      rating: new FormControl(''),
+      price: new FormControl(''),
+      image: new FormControl(''),
+      imagesUrls: new FormArray([]),
+      category: new FormControl(''),
+      subcategory: new FormControl(''),
+      sellerInformation: new FormArray([]),
+    });
+  }
+  get productprice() {
+    return this.addAdminproductDetails.get('price');
+  }
+  get seller() {
+    return (<FormArray>this.addAdminproductDetails.get('sellerInformation'))
+      .controls;
+  }
 
-  get seller(){
-    return (<FormArray>this.addAdminproductDetails.get('sellerInformation')).controls
+  get imageUrls() {
+    return (<FormArray>this.addAdminproductDetails.get('imagesUrls')).controls;
   }
-  
-  get imageUrls(){
-    return (<FormArray>this.addAdminproductDetails.get('imagesUrls')).controls
-  }
-  imageUrlsFields(){
+  imageUrlsFields() {
     return this.fb.group({
-      imageurl1:new FormControl(),
-      imageurl2:new FormControl(),
-      imageurl3:new FormControl(),
-    })
+      imageurl1: new FormControl(),
+      imageurl2: new FormControl(),
+      imageurl3: new FormControl(),
+    });
   }
 
   //add image urls
-  addImageUrls(){
-    let imageUrls=<FormArray>this.addAdminproductDetails.get('imagesUrls');
-    imageUrls.push(this.imageUrlsFields())
-    return false
+  addImageUrls() {
+    let imageUrls = <FormArray>this.addAdminproductDetails.get('imagesUrls');
+    imageUrls.push(this.imageUrlsFields());
+    return false;
   }
   //removeImageUrls
-  removeImageUrls(index:number){
-  this.imageUrls.splice(index,1)
+  removeImageUrls(index: number) {
+    this.imageUrls.splice(index, 1);
   }
-  SellerDetailsFields(){
+  SellerDetailsFields() {
     return this.fb.group({
-      productPrice:new FormControl(),
-      productAddress:new FormControl(),
-      productBrand:new FormControl(),
-      title:new FormControl(),
-      brand:new FormControl(),
-      price:new FormControl(),
-      category:new FormControl(),
-      vendor:new FormControl(),
-      image:new FormControl(),
-      imageurl2:new FormControl(),
-      imageurl3:new FormControl()
-    })
+      productPrice: new FormControl(),
+      productAddress: new FormControl(),
+      productBrand: new FormControl(),
+      title: new FormControl(),
+      brand: new FormControl(),
+      price: new FormControl(),
+      category: new FormControl(),
+      vendor: new FormControl(),
+      image: new FormControl(),
+      imageurl2: new FormControl(),
+      imageurl3: new FormControl(),
+    });
   }
+  //get id
+
   //add new seller details
-  addSellerDetails(){
-    let sellD=<FormArray>this.addAdminproductDetails.get('sellerInformation');
-    sellD.push(this.SellerDetailsFields())
-    return false
+  addSellerDetails() {
+    let sellD = <FormArray>this.addAdminproductDetails.get('sellerInformation');
+    sellD.push(this.SellerDetailsFields());
+    return false;
   }
   //remove seller fields
-  removeSellerDetails(index:number){
-    this.seller.splice(index,1);
-
+  removeSellerDetails(index: number) {
+    this.seller.splice(index, 1);
   }
-//add product details and posting through json-server mock api
- addAdminProductForm(data:any){
-    this.mainProductsRef.postMockApiData(data.value).subscribe((result)=>{
-      console.log(result)
-    })
+  //add product details and posting through json-server mock api
+  addAdminProductForm(data: any) {
+    this.mainProductsRef.postMockApiData(data.value).subscribe((result) => {
+      console.log(result);
+    });
     this.addAdminproductDetails.reset();
     this.matDialogRef.close();
-    this.routerRef.navigate(['/products'])
- }
- //closeAddAdminDialogComponent
- closeAddAdminDialogComponent(){
-  this.matDialogRef.close();
- }
-
+    this.routerRef.navigate(['/products']);
+  }
+  //closeAddAdminDialogComponent
+  closeAddAdminDialogComponent() {
+    this.matDialogRef.close();
+  }
 }

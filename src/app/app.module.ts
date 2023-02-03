@@ -1,4 +1,4 @@
-import {Component, NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { ProductChildComponent } from './product-child/product-child.component';
 import { SellingComponent } from './selling/selling.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddsellingproductsComponent } from './addsellingproducts/addsellingproducts.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { UpdatesellingproductsComponent } from './updatesellingproducts/updatesellingproducts.component';
@@ -27,61 +27,87 @@ import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MainproductsService } from './mainproducts.service';
 import { AddadminproductsComponent } from './addadminproducts/addadminproducts.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
-import {MatInputModule} from '@angular/material/input';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatInputModule } from '@angular/material/input';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UpateadminproductsComponent } from './upateadminproducts/upateadminproducts.component';
 import { AdminproductdetailsComponent } from './selling/adminproductdetails/adminproductdetails.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ImagecropComponent } from './navbar/imagecrop/imagecrop.component';
-import{CoolSocialLoginButtonsModule} from '@angular-cool/social-login-buttons'
+import { CoolSocialLoginButtonsModule } from '@angular-cool/social-login-buttons';
 import { OAuthModule } from 'angular-oauth2-oidc';
 //abacri
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
-  FacebookLoginProvider
+  FacebookLoginProvider,
 } from '@abacritt/angularx-social-login';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { GuserdetailsComponent } from './navbar/guserdetails/guserdetails.component';
 import { AddshippingdetailsComponent } from './cart/addshippingdetails/addshippingdetails.component';
-const routes:Routes=[
+import { MatFormFieldModule } from '@angular/material/form-field';
+import Swal from 'sweetalert2';
+const routes: Routes = [
   {
-     path:"",component:LoginComponent
+    path: '',
+    component: LoginComponent,
   },
-   {
-    path:"home",component:HomeComponent
-   },
-   {
-    path:"imagecrop",component:ImagecropComponent
-   },
-   {
-   path:"products",component:ProductsComponent ,canActivate:[DataService]
-   },{
-    path:"productdetails",component:ProductdetailsComponent,canActivate:[DataService]
-   },{
-    path:"cart",component:CartComponent,canActivate:[DataService]
-   },{
-    path:"payment",component:PaymentComponent,canActivate:[DataService]
-   },
-   {
-    path:"selling",component:SellingComponent,canActivate:[DataService]
-   },
-   {
-    path:'selling/adminproductdetails',component:AdminproductdetailsComponent,canActivate:[DataService]
-   },
-   {
-    path:"login",component:LoginComponent
-   },
-   {
-    path:"signup",component:SignupComponent
-   },
-   {
-    path:"**",component:PagenotfoundComponent
-   }
-]
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'imagecrop',
+    component: ImagecropComponent,
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    canActivate: [DataService],
+  },
+  {
+    path: 'productdetails',
+    component: ProductdetailsComponent,
+    canActivate: [DataService],
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [DataService],
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
+    canActivate: [DataService],
+  },
+  {
+    path: 'selling',
+    component: SellingComponent,
+    canActivate: [DataService],
+  },
+  {
+    path: 'selling/adminproductdetails',
+    component: AdminproductdetailsComponent,
+    canActivate: [DataService],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent,
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,10 +127,9 @@ const routes:Routes=[
     UpateadminproductsComponent,
     AdminproductdetailsComponent,
     ImagecropComponent,
-   LoginComponent,
-   GuserdetailsComponent,
-   AddshippingdetailsComponent,
-   
+    LoginComponent,
+    GuserdetailsComponent,
+    AddshippingdetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,9 +149,12 @@ const routes:Routes=[
     SocialLoginModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
   ],
-  providers: [DataService,MainproductsService,
+  providers: [
+    DataService,
+    MainproductsService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -136,19 +164,15 @@ const routes:Routes=[
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               '745680776261-krrecp52qjcqu5t7ds1ncj64vjaevvga.apps.googleusercontent.com'
-            )
+            ),
           },
         ],
         onError: (err) => {
           console.error(err);
-        }
+        },
       } as SocialAuthServiceConfig,
-    }
-  
-  
-  
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -5,116 +5,6 @@
     </button>
   </div>
   <div class="updateadminproductfieldsection mt-3">
-    <!-- mahesh logic end -->
-    <!-- <div *ngFor="let y of productItem">
-      <input
-        type="text"
-        [(ngModel)]="y.title"
-        name="p_title"
-        class="form-control w-50"
-      />
-      <br />
-      <input
-        type="text"
-        class="form-control w-50"
-        [(ngModel)]="y.category"
-        name="p_category"
-      /><br />
-      <input
-        type="number"
-        class="form-control w-50"
-        [(ngModel)]="y.id"
-        name="p_id"
-      /><br />
-      <input
-        type="number"
-        class="form-control w-50"
-        [(ngModel)]="y.price"
-        name="p_price"
-      /><br />
-      <input
-        type="number"
-        class="form-control w-50"
-        [(ngModel)]="y.rating"
-        name="p_rating"
-      /><br />
-      <h1>Image urls</h1>
-      <div *ngFor="let x of y.imagesUrls" class="d-flex">
-        <input
-          type="text"
-          class="form-control w-50"
-          [(ngModel)]="x.imageurl1"
-          name="image1"
-        />
-        <input
-          type="text"
-          class="form-control w-50"
-          [(ngModel)]="x.imageurl2"
-          name="image2"
-        />
-        <input
-          type="text"
-          class="form-control w-50"
-          [(ngModel)]="x.imageurl3"
-          name="image3"
-        />
-      </div>
-      <h1>seller details</h1>
-      <div *ngFor="let z of y.sellerInformation">
-        <input
-          type="text"
-          [(ngModel)]="z.title"
-          class="form-control w-50"
-          name="seller_title"
-        />
-        <input
-          type="text"
-          [(ngModel)]="z.category"
-          class="form-control w-50"
-          name="seller_category"
-        />
-        <input
-          type="number"
-          [(ngModel)]="z.price"
-          class="form-control w-50"
-          name="seller_price"
-        />
-        <input
-          type="text"
-          [(ngModel)]="z.vendor"
-          class="form-control w-50"
-          name="seller_vendor"
-        />
-
-        <input
-          type="text"
-          [(ngModel)]="z.brand"
-          class="form-control w-50"
-          name="seller_brand"
-        />
-        <div class="d-flex">
-          <input
-            type="text"
-            [(ngModel)]="z.image"
-            class="form-control w-50"
-            name="seller_image"
-          />
-          <input
-            type="text"
-            [(ngModel)]="z.imageurl2"
-            class="form-control w-50"
-            name="seller_image2"
-          />
-          <input
-            type="text"
-            [(ngModel)]="z.imageurl3"
-            class="form-control w-50"
-            name="seller_image3"
-          />
-        </div>
-      </div>
-    </div> -->
-    <!-- mahesh logic end -->
     <form
       [formGroup]="updateProductsData"
       (ngSubmit)="
@@ -160,6 +50,21 @@
         class="product_field"
         formControlName="image"
       />
+      <div formArrayName="imageUrls">
+        <div *ngFor="let images of imageUrls.controls; let i = index">
+          <div [formGroupName]="i">
+            <input type="text" name="" id="" formControlName="imageurl" />
+            <button (click)="removeImageUrl(i)" class="btn btn-danger">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+      <p>
+        <button type="button" (click)="addNewImage()" class="btn btn-success">
+          Add
+        </button>
+      </p>
       <!-- <div formArrayName="imageUrls">
         <div *ngFor="let imageurl of imageUrls; let i = index">
           <div [formGroupName]="i">
@@ -197,34 +102,6 @@
         class="product_field"
         formControlName="subcategory"
       />
-      <div formArrayName="sellerInformation">
-        <div *ngFor="let seller of sellerDetails; let i = index">
-          <div [formGroupName]="i">
-            <div class="add-seller-similar_products">
-              <input type="text" name="seller_title" formControlName="title" />
-
-              <input
-                type="text"
-                name="seller_price"
-                id=""
-                formControlName="price"
-              />
-              <input type="text" name="i" id="" formControlName="brand" />
-              <input type="text" name="i" id="" formControlName="category" />
-              <input type="text" name="i" id="" formControlName="vendor" />
-              <input type="text" name="i" id="" formControlName="imageurl1" />
-              <input type="text" name="i" id="" formControlName="imageurl2" />
-              <input type="text" name="i" id="" formControlName="imageurl3" />
-              <button class="btn btn-danger" (click)="removeSellerDetails(i)">
-                Remove
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-success" (click)="addSellerDetails()">
-        Update similar product details
-      </button>
       <div class="d-flex justify-content-center">
         <input class="btn btn-success" type="submit" value="Submit" />
       </div>

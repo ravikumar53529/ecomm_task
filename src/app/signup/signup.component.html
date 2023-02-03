@@ -117,7 +117,7 @@
         *ngIf="userFile && userFile.touched && userFile.valid && filesizeValue"
         >File size must be less than 60kb</span
       >
-      <!-- *ngIf="userFile && userFile.touched && userFile.errors?.['filesizeValue']" -->
+
       <span
         class="text-danger"
         *ngIf="fileTypeMessage && userFile && userFile.valid"

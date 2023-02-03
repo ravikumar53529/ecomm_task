@@ -1,23 +1,16 @@
-.prodcut-details{
-    border: 5px solid rgb(230, 172, 172) ;
-    padding: 10px;
-    margin: 0 auto;
-    .grid-sec{
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: auto auto ;
+.prodcut-details {
+  border: 5px solid rgb(230, 172, 172);
+  padding: 10px;
+  margin: 0 auto;
+  .grid-sec {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto auto;
+  }
+  .main {
+    .similaritems {
+      width: 500px;
+      height: 500px;
     }
-    .main{
-        .similaritems{
-            width:500px;
-            height:500px; 
-        }
-    }
-}
-.similar-products{
-    // .grid{
-    //     display: grid;
-    //     gap:1rem;
-    //     grid-template-columns: auto auto auto auto;
-    // }
+  }
 }

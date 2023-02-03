@@ -6,42 +6,43 @@ import { DataService } from 'src/app/data.service';
 @Component({
   selector: 'app-imagecrop',
   templateUrl: './imagecrop.component.html',
-  styleUrls: ['./imagecrop.component.scss']
+  styleUrls: ['./imagecrop.component.scss'],
 })
 export class ImagecropComponent {
-  constructor(private matDialogRef:MatDialogRef<ImagecropComponent>,private dataServiceRef:DataService){}
-  image:any='';
-  imageEvent:any=''
+  constructor(
+    private matDialogRef: MatDialogRef<ImagecropComponent>,
+    private dataServiceRef: DataService
+  ) {}
+  image: string = '';
+  imageEvent: string = '';
   ngOnInit(): void {
-    this.imageEvent=this.dataServiceRef.imageFile;
-    console.log(this.imageEvent)
+    this.imageEvent = this.dataServiceRef.imageFile;
     this.fileChangeEvent(this.imageEvent);
-    
   }
-//image crop
-imageChangedEvent: any = '';
-croppedImage: any = '';
+  //image crop
+  imageChangedEvent: string = '';
+  croppedImage: any;
 
-fileChangeEvent(event:any): void {
-  console.log(event)
+  fileChangeEvent(event: any): void {
+    console.log(event);
     this.imageChangedEvent = event;
-}
-imageCropped(event: ImageCroppedEvent) {
+  }
+  imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-    this.dataServiceRef.croppedImage(this.croppedImage)
-}
-imageLoaded() {
+    this.dataServiceRef.croppedImage(this.croppedImage);
+  }
+  imageLoaded() {
     // show cropper
-}
-cropperReady() {
+  }
+  cropperReady() {
     // cropper ready
-}
-loadImageFailed() {
+  }
+  loadImageFailed() {
     // show message
-}
+  }
 
-//closePopup()
-closePopup(){
-this.matDialogRef.close();
-}
+  //closePopup()
+  closePopup() {
+    this.matDialogRef.close();
+  }
 }

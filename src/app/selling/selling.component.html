@@ -1,8 +1,3 @@
-<!-- <div class="container mt-4 bg-danger p-5 rounded">
-  <p class="text-light p-2">You can sell products here</p>
-</div> -->
-<!-- main section icons start -->
-
 <div class="container main-items mt-5">
   <div class="d-flex justify-content-between">
     <div class="main">
@@ -157,71 +152,6 @@
     </div>
   </div>
 </div>
-
-<!-- main section icons end -->
-<!-- 
-<div class="container mt-4 bg-light">
-  <div class="selling_header">
-    <div>
-      <button class="btn btn-primary" (click)="openDialog()">
-        Add products
-      </button>
-    
-    </div>
-    <div>
-      <form>
-        <input type="text" name="" class="inputsearch" />
-        <input type="button" name="" id="" value="Search" class="search" />
-      </form>
-    </div>
-  </div>
-</div>
-<div class="container mt-4 bg-light">
-  <div *ngIf="sellingData.length > 0">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Brand</th>
-          <th>Model</th>
-          <th>Address</th>
-          <th>Add to Cart</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-    
-      <tbody>
-        <tr *ngFor="let x of sellingData">
-          <td>{{ x.productId }}</td>
-          <td>{{ x.productName }}</td>
-          <td>{{ x.productPrice }}</td>
-          <td>{{ x.productBrand }}</td>
-          <td>{{ x.productModel }}</td>
-          <td>{{ x.productAddress }}</td>
-          <td>
-            <button>
-              <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-            </button>
-          </td>
-          <td>
-            <button (click)="updateProducts(x.productId)">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            </button>
-          </td>
-          <td>
-            <button (click)="deleteProducts(x.productId)" href="">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-      <tfoot></tfoot>
-    </table>
-  </div>
-</div> -->
 <div class="mt-5">
   <div class="container bg-light search-section">
     <div class="d-flex justify-content-between">
@@ -244,7 +174,6 @@
           <span class="cart-length">{{ cartLength }}</span>
         </a>
       </div>
-      <!-- <div><button class="btn btn-danger">Delete products</button></div> -->
     </div>
   </div>
 </div>
@@ -294,14 +223,6 @@
             </div>
           </ng-template>
         </ngb-carousel>
-
-        <!-- <img
-          class="card-img-top"
-          src="{{ products.image }}"
-          alt=""
-          width="80px"
-          height="200px"
-        /> -->
         <div class="card-body">
           <h4 class="card-title text-danger">{{ products.title }}</h4>
           <p class="card-text fs-6 p-2">
@@ -341,14 +262,6 @@
                 </div>
               </ng-template>
             </ngb-carousel>
-
-            <!-- <img
-              src="{{ imageurls.imageurl1 }}"
-              width="100px"
-              height="100px"
-              alt="img1"
-            />
-             -->
           </div>
 
           <div class="d-flex justify-content-between">

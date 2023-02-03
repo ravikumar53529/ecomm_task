@@ -5,6 +5,12 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { GoogleServiceService } from '../google-service.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+interface loginform {
+  useremail: string;
+  userpassword: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,6 +19,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class LoginComponent implements AfterViewChecked, OnInit {
   user: Object = {};
   userDetails: any;
+
   @ViewChild('loginForm') customerLoginForm: any;
   constructor(
     private routes: Router,
@@ -39,7 +46,8 @@ export class LoginComponent implements AfterViewChecked, OnInit {
   }
 
   //USER LOGIN
-  loginUser1(loginForm: any): void {
+  loginUser(loginForm: loginform): void {
+    console.log(loginForm);
     this.dataServiceRef.userAuthentication(loginForm, this.user);
     this.customerLoginForm.reset();
   }

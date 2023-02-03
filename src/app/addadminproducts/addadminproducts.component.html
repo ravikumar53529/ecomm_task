@@ -15,6 +15,7 @@
         placeholder="Enter Id"
         formControlName="productId"
       />
+
       <input
         type="text"
         class="product_field"
@@ -39,6 +40,11 @@
         class="product_field"
         formControlName="price"
       />
+      <span
+        *ngIf="productprice && productprice.invalid && productprice.touched"
+        class="text-danger"
+        >please enter valid price</span
+      >
       <input
         type="text"
         class="product_field"
@@ -167,7 +173,12 @@
         +Add similar prodcut details
       </button>
       <div class="d-flex justify-content-center">
-        <input type="submit" class="btn btn-success" value="Add Details" />
+        <input
+          type="submit"
+          class="btn btn-success"
+          value="Add Details"
+          [disabled]="addAdminproductDetails.invalid"
+        />
       </div>
     </form>
   </div>

@@ -1,13 +1,12 @@
 <div class="container loginform">
   <div class="pt-3">
     <div></div>
-    <form #loginForm="ngForm" (ngSubmit)="loginUser1(loginForm.value)">
+    <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
       <input
         type="email"
         required
         #useremail="ngModel"
         name="useremail"
-        email
         placeholder="Enter Email"
         class="login_field"
         ngModel

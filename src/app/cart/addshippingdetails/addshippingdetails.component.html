@@ -1,1 +1,85 @@
-<p>addshippingdetails works!</p>
+<div class="container">
+  <form
+    #shippingdetailsform="ngForm"
+    (ngSubmit)="shippingDetails(shippingdetailsform)"
+  >
+    <div class="shipping-address">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Fullname</mat-label>
+        <input matInput name="fullname" ngModel #username="ngModel" required />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <div
+        *ngIf="username && username.invalid && username.touched"
+        class="text-danger"
+      >
+        enter correct name
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Phonenumber</mat-label>
+        <input
+          matInput
+          type="number"
+          name="phonenumber"
+          required
+          #userphonenumber="ngModel"
+          ngModel
+        />
+        <mat-icon matSuffix>phone_iphone</mat-icon>
+      </mat-form-field>
+      <span
+        *ngIf="
+          userphonenumber && userphonenumber.invalid && userphonenumber.touched
+        "
+        class="text-danger"
+      >
+        Please enter valid phone number
+      </span>
+      <mat-form-field>
+        <mat-label>Enter Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          ngModel
+          email
+          required
+          #useremail="ngModel"
+        />
+        <mat-icon matSuffix>mail</mat-icon>
+      </mat-form-field>
+      <span
+        *ngIf="useremail && useremail.invalid && useremail.touched"
+        class="text-danger"
+        >please enter proper email</span
+      >
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Address</mat-label>
+        <textarea
+          matInput
+          type="address"
+          name="address"
+          required
+          #useraddress="ngModel"
+          ngModel
+        ></textarea>
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+      <span
+        *ngIf="useraddress && useraddress.invalid && useraddress.touched"
+        class="text-danger"
+      >
+        Please enter valid address
+      </span>
+
+      <button
+        type="submit"
+        [disabled]="shippingdetailsform.invalid"
+        mat-raised-button
+        color="primary"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

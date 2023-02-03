@@ -16,13 +16,13 @@ import { ImagecropComponent } from './imagecrop/imagecrop.component';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements AfterViewChecked, OnInit {
-  admin: string | undefined;
+  admin: string = '';
   adminCheck: boolean = false;
-  basicNavitems: string | undefined;
+  basicNavitems: string = '';
   googleUserFromLocalStorage: any;
   googleUserResult: any;
   //imagecropp
-  imageUpdated =
+  imageUpdated: string =
     'https://media.istockphoto.com/vectors/businessman-profile-shopping-and-ecommerce-background-pattern-vector-id953840568?k=6&m=953840568&s=170667a&w=0&h=GCsJi0INligI_7aUTscT28OQB6PN-XZYSvLSLCIwXL0=';
   constructor(
     private dataServiceRef: DataService,
@@ -59,7 +59,6 @@ export class NavbarComponent implements AfterViewChecked, OnInit {
 
   //imageCrop
   imageCrop(imageEvent: Object) {
-    console.log(imageEvent);
     this.imageFile = imageEvent;
     localStorage.setItem('imageFile', JSON.stringify(imageEvent));
     localStorage.removeItem('googleUser');
